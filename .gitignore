@@ -1,1 +1,13 @@
-Library
+Library/
+Library\
+Temp/
+.vs/UnityNotes/v15/.suo
+.vs/UnityNotes/v15/Server/sqlite3/db.lock
+.vs/UnityNotes/v15/Server/sqlite3/storage.ide
+.vs/UnityNotes/v15/Server/sqlite3/storage.ide-shm
+.vs/UnityNotes/v15/Server/sqlite3/storage.ide-wal
+Library/assetDatabase3
+Library/assetDatabase3
+Library/shadercompiler-UnityShaderCompiler.exe0.log
+Library/shadercompiler-UnityShaderCompiler.exe0.log
+*.log
