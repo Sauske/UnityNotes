@@ -292,6 +292,18 @@
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/admin/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
+    <Reference Include="protobuf-net">
+      <HintPath>Assets/StarForce/GameMain/Libraries/protobuf-net.dll</HintPath>
+    </Reference>
+    <Reference Include="GameFramework">
+      <HintPath>Assets/StarForce/GameFramework/Libraries/GameFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="LitJson">
+      <HintPath>Assets/StarForce/GameMain/Libraries/LitJson.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>Assets/StarForce/GameFramework/Libraries/ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
     </Reference>
@@ -300,11 +312,143 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="UnityGameFramework.Runtime.csproj">
+      <Project>{67A9BF4A-0647-E7AB-D27F-F75FB487D16B}</Project>
+      <Name>UnityGameFramework.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="UnityGameFramework.Editor.csproj">
+      <Project>{AC2C2EEB-B73D-D3AA-91F6-97270854DEA6}</Project>
+      <Name>UnityGameFramework.Editor</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Assets\Scripts\CUIPolygon\CUIPolygon.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Base\GameEntry.Builtin.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Base\GameEntry.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Base\GameEntry.Custom.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Config\ConfigComponent.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Config\DeviceModelConfig.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\DataTable\DataTableExtension.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\DataTable\DRAircraft.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\DataTable\DRArmor.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\DataTable\DRAsteroid.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\DataTable\DREntity.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\DataTable\DRMusic.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\DataTable\DRScene.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\DataTable\DRSound.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\DataTable\DRThruster.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\DataTable\DRUIForm.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\DataTable\DRUISound.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\DataTable\DRWeapon.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Debugger\ChangeLanguageDebuggerWindow.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Definition\Constant\Constant.Layer.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Definition\Constant\Constant.ProcedureData.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Definition\Constant\Constant.Setting.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Definition\DataStruct\BuildInfo.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Definition\DataStruct\DeviceModel.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Definition\DataStruct\ImpactData.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Definition\DataStruct\VersionInfo.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Definition\Enum\CampType.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Definition\Enum\QualityLevelType.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Definition\Enum\RelationType.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Entity\EntityData\AccessoryObjectData.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Entity\EntityData\AircraftData.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Entity\EntityData\ArmorData.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Entity\EntityData\AsteroidData.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Entity\EntityData\BulletData.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Entity\EntityData\EffectData.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Entity\EntityData\EntityData.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Entity\EntityData\MyAircraftData.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Entity\EntityData\TargetableObjectData.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Entity\EntityData\ThrusterData.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Entity\EntityData\WeaponData.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Entity\EntityExtension.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Entity\EntityLogic\Aircraft.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Entity\EntityLogic\Armor.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Entity\EntityLogic\Asteroid.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Entity\EntityLogic\Bullet.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Entity\EntityLogic\Effect.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Entity\EntityLogic\Entity.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Entity\EntityLogic\MyAircraft.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Entity\EntityLogic\TargetableObject.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Entity\EntityLogic\Thruster.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Entity\EntityLogic\Weapon.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Game\GameBase.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Game\GameMode.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Game\SurvivalGame.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\HPBar\HPBarComponent.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\HPBar\HPBarItem.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\HPBar\HPBarItemObject.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Localization\LocalizationExtension.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Localization\XmlLocalizationHelper.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Network\CSPacketBase.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Network\CSPacketHeader.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Network\NetworkChannelHelper.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Network\Packet\CSHeartBeat.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Network\Packet\SCHeartBeat.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Network\PacketBase.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Network\PacketHandler\SCHeartBeatHandler.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Network\PacketHandlerBase.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Network\PacketHeaderBase.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Network\PacketType.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Network\SCPacketBase.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Network\SCPacketHeader.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Procedure\ProcedureBase.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Procedure\ProcedureChangeScene.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Procedure\ProcedureCheckVersion.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Procedure\ProcedureLaunch.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Procedure\ProcedureMain.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Procedure\ProcedureMenu.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Procedure\ProcedurePreload.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Procedure\ProcedureSplash.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Scene\HideByBoundary.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Scene\SceneId.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Scene\ScrollableBackground.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Sound\SoundExtension.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\UI\AboutForm.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\UI\CommonButton.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\UI\DialogForm.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\UI\DialogParams.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\UI\MenuForm.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\UI\SettingForm.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\UI\UGuiForm.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\UI\UGuiGroupHelper.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\UI\UIExtension.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\UI\UIFormId.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Utility\AIUtility.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Utility\AssetUtility.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Utility\LitJsonHelper.cs" />
+    <Compile Include="Assets\StarForce\GameMain\Scripts\Utility\WebUtility.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Editor\ClearUpUnused\ReadMe.txt" />
     <None Include="Assets\Scripts\CUIPolygon\ReadMe.txt" />
+    <None Include="Assets\StarForce\GameFramework\Libraries\GameFramework.xml" />
+    <None Include="Assets\StarForce\GameFramework\Libraries\link.xml" />
+    <None Include="Assets\StarForce\GameFramework\Scripts\Editor\UnityGameFramework.Editor.asmdef" />
+    <None Include="Assets\StarForce\GameFramework\Scripts\Runtime\UnityGameFramework.Runtime.asmdef" />
+    <None Include="Assets\StarForce\GameMain\Configs\AssetBundleBuilder.xml" />
+    <None Include="Assets\StarForce\GameMain\Configs\AssetBundleCollection.xml" />
+    <None Include="Assets\StarForce\GameMain\Configs\AssetBundleEditor.xml" />
+    <None Include="Assets\StarForce\GameMain\Configs\BuildInfo.txt" />
+    <None Include="Assets\StarForce\GameMain\Configs\BuildSettings.xml" />
+    <None Include="Assets\StarForce\GameMain\Configs\DefaultDictionary.xml" />
+    <None Include="Assets\StarForce\GameMain\DataTables\Aircraft.txt" />
+    <None Include="Assets\StarForce\GameMain\DataTables\Armor.txt" />
+    <None Include="Assets\StarForce\GameMain\DataTables\Asteroid.txt" />
+    <None Include="Assets\StarForce\GameMain\DataTables\Entity.txt" />
+    <None Include="Assets\StarForce\GameMain\DataTables\Music.txt" />
+    <None Include="Assets\StarForce\GameMain\DataTables\Scene.txt" />
+    <None Include="Assets\StarForce\GameMain\DataTables\Sound.txt" />
+    <None Include="Assets\StarForce\GameMain\DataTables\Thruster.txt" />
+    <None Include="Assets\StarForce\GameMain\DataTables\UIForm.txt" />
+    <None Include="Assets\StarForce\GameMain\DataTables\UISound.txt" />
+    <None Include="Assets\StarForce\GameMain\DataTables\Weapon.txt" />
+    <None Include="Assets\StarForce\GameMain\Localization\ChineseSimplified\Dictionaries\Default.xml" />
+    <None Include="Assets\StarForce\GameMain\Localization\ChineseTraditional\Dictionaries\Default.xml" />
+    <None Include="Assets\StarForce\GameMain\Localization\English\Dictionaries\Default.xml" />
+    <None Include="Assets\StarForce\GameMain\Localization\Korean\Dictionaries\Default.xml" />
+    <None Include="Assets\StarForce\Readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
