@@ -271,6 +271,18 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="GameFramework">
+      <HintPath>Assets/StarForce/GameFramework/Libraries/GameFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>Assets/StarForce/GameFramework/Libraries/ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="LitJson">
+      <HintPath>Assets/StarForce/GameMain/Libraries/LitJson.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf-net">
+      <HintPath>Assets/StarForce/GameMain/Libraries/protobuf-net.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.Advertisements">
       <HintPath>C:/Users/admin/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
     </Reference>
@@ -291,18 +303,6 @@
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/admin/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="protobuf-net">
-      <HintPath>Assets/StarForce/GameMain/Libraries/protobuf-net.dll</HintPath>
-    </Reference>
-    <Reference Include="GameFramework">
-      <HintPath>Assets/StarForce/GameFramework/Libraries/GameFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="LitJson">
-      <HintPath>Assets/StarForce/GameMain/Libraries/LitJson.dll</HintPath>
-    </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>Assets/StarForce/GameFramework/Libraries/ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -326,6 +326,89 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Common\NGUI\Examples\Scripts\InventorySystem\Editor\InvDatabaseInspector.cs" />
+    <Compile Include="Assets\Common\NGUI\Examples\Scripts\InventorySystem\Editor\InvFindItem.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\ActiveAnimationEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\BMFontReader.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\ComponentSelector.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\EventDelegateDrawer.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\EventDelegateEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\FreeType.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\NGUIContextMenu.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\NGUIEditorExtensions.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\NGUIEditorTools.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\NGUIHandles.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\NGUIHelp.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\NGUIJson.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\NGUIMenu.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\NGUISelectionTools.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\NGUISettings.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\NGUISnap.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\NGUITransformInspector.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\PropertyBindingEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\PropertyReferenceDrawer.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\SpriteSelector.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\TweenAlphaEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\TweenColorEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\TweenFOVEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\TweenHeightEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\TweenOrthoSizeEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\TweenPositionEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\TweenRotationEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\TweenScaleEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\TweenTransformEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\TweenVolumeEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\TweenWidthEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UI2DSpriteEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIAnchorEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIAtlasInspector.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIAtlasMaker.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIBasicSpriteEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIButtonColorEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIButtonEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIButtonKeysEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIButtonMessageEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UICameraEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UICameraTool.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UICreateNewUIWizard.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UICreateWidgetWizard.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIDragObjectEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIDrawCallInspector.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIDrawCallViewer.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIEventTriggerEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIFontInspector.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIFontMaker.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIForwardEventsEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIGridEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIImageButtonInspector.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIInputEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIKeyNavigationEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UILabelInspector.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UILocalizeEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIPanelInspector.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIPanelTool.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIPlayAnimationEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIPlayTweenEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIPopupListInspector.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIPrefabTool.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIProgressBarEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIRectEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIRootEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIScrollBarEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIScrollViewEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UISliderEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UISnapshotPointEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UISpriteAnimationInspector.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UISpriteInspector.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIStretchEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UITableEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UITextureInspector.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UITexturePacker.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIToggleInspector.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UITweenerEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIWidgetContainerEditor.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIWidgetInspector.cs" />
+    <Compile Include="Assets\Common\NGUI\Scripts\Editor\UIWrapContentEditor.cs" />
     <Compile Include="Assets\Editor\ClearUpUnused\AssetCollector.cs" />
     <Compile Include="Assets\Editor\ClearUpUnused\ClassReferenceCollection.cs" />
     <Compile Include="Assets\Editor\ClearUpUnused\FindUnusedAssets.cs" />
@@ -337,6 +420,39 @@
     <Compile Include="Assets\StarForce\GameMain\Scripts\Editor\StarForceBuildEventHandler.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Common\NGUI\Examples\Atlases\Fantasy\Fantasy Font - Normal.txt" />
+    <None Include="Assets\Common\NGUI\Examples\Atlases\Refractive\Refractive Font - Header.txt" />
+    <None Include="Assets\Common\NGUI\Examples\Atlases\Refractive\Refractive Font - Normal.txt" />
+    <None Include="Assets\Common\NGUI\Examples\Atlases\SciFi\SciFi Font - Header.txt" />
+    <None Include="Assets\Common\NGUI\Examples\Atlases\SciFi\SciFi Font - Normal.txt" />
+    <None Include="Assets\Common\NGUI\Examples\Atlases\Wooden\Arimo14.txt" />
+    <None Include="Assets\Common\NGUI\Examples\Atlases\Wooden\Arimo18.txt" />
+    <None Include="Assets\Common\NGUI\Examples\Atlases\Wooden\Arimo20.txt" />
+    <None Include="Assets\Common\NGUI\Examples\Models\Orc Armor\Orc Armor.shader" />
+    <None Include="Assets\Common\NGUI\Examples\Models\Orc\Orc Skin.shader" />
+    <None Include="Assets\Common\NGUI\Examples\Resources\Localization.txt" />
+    <None Include="Assets\Common\NGUI\Examples\Shaders\Refractive.shader" />
+    <None Include="Assets\Common\NGUI\Examples\Shaders\Unlit - Additive Colored.shader" />
+    <None Include="Assets\Common\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />
+    <None Include="Assets\Common\NGUI\Examples\Shaders\Unlit - Depth.shader" />
+    <None Include="Assets\Common\NGUI\Examples\Shaders\Unlit - Masked Colored.shader" />
+    <None Include="Assets\Common\NGUI\ReadMe - 3.6.7.txt" />
+    <None Include="Assets\Common\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 1.shader" />
+    <None Include="Assets\Common\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 2.shader" />
+    <None Include="Assets\Common\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 3.shader" />
+    <None Include="Assets\Common\NGUI\Resources\Shaders\Unlit - Premultiplied Colored.shader" />
+    <None Include="Assets\Common\NGUI\Resources\Shaders\Unlit - Text 1.shader" />
+    <None Include="Assets\Common\NGUI\Resources\Shaders\Unlit - Text 2.shader" />
+    <None Include="Assets\Common\NGUI\Resources\Shaders\Unlit - Text 3.shader" />
+    <None Include="Assets\Common\NGUI\Resources\Shaders\Unlit - Text.shader" />
+    <None Include="Assets\Common\NGUI\Resources\Shaders\Unlit - Transparent Colored 1.shader" />
+    <None Include="Assets\Common\NGUI\Resources\Shaders\Unlit - Transparent Colored 2.shader" />
+    <None Include="Assets\Common\NGUI\Resources\Shaders\Unlit - Transparent Colored 3.shader" />
+    <None Include="Assets\Common\NGUI\Resources\Shaders\Unlit - Transparent Colored.shader" />
+    <None Include="Assets\Common\NGUI\Resources\Shaders\Unlit - Transparent Packed 1.shader" />
+    <None Include="Assets\Common\NGUI\Resources\Shaders\Unlit - Transparent Packed 2.shader" />
+    <None Include="Assets\Common\NGUI\Resources\Shaders\Unlit - Transparent Packed 3.shader" />
+    <None Include="Assets\Common\NGUI\Resources\Shaders\Unlit - Transparent Packed.shader" />
     <None Include="Assets\Editor\ClearUpUnused\ReadMe.txt" />
     <None Include="Assets\Scripts\CUIPolygon\ReadMe.txt" />
     <None Include="Assets\StarForce\GameFramework\Libraries\GameFramework.xml" />

@@ -271,6 +271,18 @@
     <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
+    <Reference Include="GameFramework">
+      <HintPath>Assets/StarForce/GameFramework/Libraries/GameFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>Assets/StarForce/GameFramework/Libraries/ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="LitJson">
+      <HintPath>Assets/StarForce/GameMain/Libraries/LitJson.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf-net">
+      <HintPath>Assets/StarForce/GameMain/Libraries/protobuf-net.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.Advertisements">
       <HintPath>C:/Users/admin/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
     </Reference>
@@ -291,18 +303,6 @@
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>C:/Users/admin/AppData/LocalLow/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
-    </Reference>
-    <Reference Include="protobuf-net">
-      <HintPath>Assets/StarForce/GameMain/Libraries/protobuf-net.dll</HintPath>
-    </Reference>
-    <Reference Include="GameFramework">
-      <HintPath>Assets/StarForce/GameFramework/Libraries/GameFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="LitJson">
-      <HintPath>Assets/StarForce/GameMain/Libraries/LitJson.dll</HintPath>
-    </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>Assets/StarForce/GameFramework/Libraries/ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.iOS.Extensions.Xcode">
       <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
@@ -495,6 +495,39 @@
     <Compile Include="Assets\StarForce\GameFramework\Scripts\Runtime\WebRequest\WWWFormInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Common\NGUI\Examples\Atlases\Fantasy\Fantasy Font - Normal.txt" />
+    <None Include="Assets\Common\NGUI\Examples\Atlases\Refractive\Refractive Font - Header.txt" />
+    <None Include="Assets\Common\NGUI\Examples\Atlases\Refractive\Refractive Font - Normal.txt" />
+    <None Include="Assets\Common\NGUI\Examples\Atlases\SciFi\SciFi Font - Header.txt" />
+    <None Include="Assets\Common\NGUI\Examples\Atlases\SciFi\SciFi Font - Normal.txt" />
+    <None Include="Assets\Common\NGUI\Examples\Atlases\Wooden\Arimo14.txt" />
+    <None Include="Assets\Common\NGUI\Examples\Atlases\Wooden\Arimo18.txt" />
+    <None Include="Assets\Common\NGUI\Examples\Atlases\Wooden\Arimo20.txt" />
+    <None Include="Assets\Common\NGUI\Examples\Models\Orc Armor\Orc Armor.shader" />
+    <None Include="Assets\Common\NGUI\Examples\Models\Orc\Orc Skin.shader" />
+    <None Include="Assets\Common\NGUI\Examples\Resources\Localization.txt" />
+    <None Include="Assets\Common\NGUI\Examples\Shaders\Refractive.shader" />
+    <None Include="Assets\Common\NGUI\Examples\Shaders\Unlit - Additive Colored.shader" />
+    <None Include="Assets\Common\NGUI\Examples\Shaders\Unlit - Depth Cutout.shader" />
+    <None Include="Assets\Common\NGUI\Examples\Shaders\Unlit - Depth.shader" />
+    <None Include="Assets\Common\NGUI\Examples\Shaders\Unlit - Masked Colored.shader" />
+    <None Include="Assets\Common\NGUI\ReadMe - 3.6.7.txt" />
+    <None Include="Assets\Common\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 1.shader" />
+    <None Include="Assets\Common\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 2.shader" />
+    <None Include="Assets\Common\NGUI\Resources\Shaders\Unlit - Premultiplied Colored 3.shader" />
+    <None Include="Assets\Common\NGUI\Resources\Shaders\Unlit - Premultiplied Colored.shader" />
+    <None Include="Assets\Common\NGUI\Resources\Shaders\Unlit - Text 1.shader" />
+    <None Include="Assets\Common\NGUI\Resources\Shaders\Unlit - Text 2.shader" />
+    <None Include="Assets\Common\NGUI\Resources\Shaders\Unlit - Text 3.shader" />
+    <None Include="Assets\Common\NGUI\Resources\Shaders\Unlit - Text.shader" />
+    <None Include="Assets\Common\NGUI\Resources\Shaders\Unlit - Transparent Colored 1.shader" />
+    <None Include="Assets\Common\NGUI\Resources\Shaders\Unlit - Transparent Colored 2.shader" />
+    <None Include="Assets\Common\NGUI\Resources\Shaders\Unlit - Transparent Colored 3.shader" />
+    <None Include="Assets\Common\NGUI\Resources\Shaders\Unlit - Transparent Colored.shader" />
+    <None Include="Assets\Common\NGUI\Resources\Shaders\Unlit - Transparent Packed 1.shader" />
+    <None Include="Assets\Common\NGUI\Resources\Shaders\Unlit - Transparent Packed 2.shader" />
+    <None Include="Assets\Common\NGUI\Resources\Shaders\Unlit - Transparent Packed 3.shader" />
+    <None Include="Assets\Common\NGUI\Resources\Shaders\Unlit - Transparent Packed.shader" />
     <None Include="Assets\Editor\ClearUpUnused\ReadMe.txt" />
     <None Include="Assets\Scripts\CUIPolygon\ReadMe.txt" />
     <None Include="Assets\StarForce\GameFramework\Libraries\GameFramework.xml" />
