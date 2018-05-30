@@ -316,6 +316,10 @@
     <Compile Include="Assets\ECS\Example\GameObjectExample\PrefabSpawner.cs" />
     <Compile Include="Assets\ECS\Example\GameObjectExample\RotateObjectSystem.cs" />
     <Compile Include="Assets\ECS\Example\GameObjectExample\RotationSpeedComponent.cs" />
+    <Compile Include="Assets\Joint2D\Scripts\Ball.cs" />
+    <Compile Include="Assets\Joint2D\Scripts\Joints_Sample.cs" />
+    <Compile Include="Assets\Joint2D\Scripts\Line.cs" />
+    <Compile Include="Assets\Joint2D\Scripts\Movement.cs" />
     <Compile Include="Assets\LoopScrellView\PlugIns\NGUI\Interaction\LanguageSelection.cs" />
     <Compile Include="Assets\LoopScrellView\PlugIns\NGUI\Interaction\TypewriterEffect.cs" />
     <Compile Include="Assets\LoopScrellView\PlugIns\NGUI\Interaction\UIButton.cs" />
@@ -702,6 +706,7 @@
     <Compile Include="Assets\StarForce\GameMain\Scripts\Utility\AssetUtility.cs" />
     <Compile Include="Assets\StarForce\GameMain\Scripts\Utility\LitJsonHelper.cs" />
     <Compile Include="Assets\StarForce\GameMain\Scripts\Utility\WebUtility.cs" />
+    <Compile Include="Assets\SuskeTest\ActionTest\ActionTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Common\NGUI\Examples\Atlases\Fantasy\Fantasy Font - Normal.txt" />
@@ -746,6 +751,7 @@
     <None Include="Assets\ECS\ECS\Unity\Editor\Templates\91-ECS__Wrapped Component Struct-NewComponent.cs.txt" />
     <None Include="Assets\ECS\ECS\assembly.asmdef" />
     <None Include="Assets\Editor\ClearUpUnused\ReadMe.txt" />
+    <None Include="Assets\Joint2D\Readme.txt" />
     <None Include="Assets\LoopScrellView\Readme.txt" />
     <None Include="Assets\Scripts\CUIPolygon\ReadMe.txt" />
     <None Include="Assets\StarForce\GameFramework\Libraries\GameFramework.xml" />
