@@ -314,25 +314,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Unity.PackageManagerUI.Editor.csproj">
-      <Project>{6877705C-FBD9-0C4F-5AFB-6FB431E5D39D}</Project>
-      <Name>Unity.PackageManagerUI.Editor</Name>
-    </ProjectReference>
     <ProjectReference Include="UnityGameFramework.Runtime.csproj">
       <Project>{67A9BF4A-0647-E7AB-D27F-F75FB487D16B}</Project>
       <Name>UnityGameFramework.Runtime</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityGameFramework.Editor.csproj">
-      <Project>{AC2C2EEB-B73D-D3AA-91F6-97270854DEA6}</Project>
-      <Name>UnityGameFramework.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="ECS.csproj">
       <Project>{33A547E4-FBA6-F94B-2292-6A357BC6BAB8}</Project>
       <Name>ECS</Name>
     </ProjectReference>
+    <ProjectReference Include="UnityGameFramework.Editor.csproj">
+      <Project>{AC2C2EEB-B73D-D3AA-91F6-97270854DEA6}</Project>
+      <Name>UnityGameFramework.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="UnityEditor.StandardEvents.csproj">
       <Project>{6800202F-4402-D405-F8CB-03DC7BD78B92}</Project>
       <Name>UnityEditor.StandardEvents</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.PackageManagerUI.Editor.csproj">
+      <Project>{6877705C-FBD9-0C4F-5AFB-6FB431E5D39D}</Project>
+      <Name>Unity.PackageManagerUI.Editor</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -563,6 +563,9 @@
     <Compile Include="Assets\GraphicGUI\Scripts\SpringGUI\UITree\UITreeData.cs" />
     <Compile Include="Assets\GraphicGUI\Scripts\SpringGUI\UITree\UITreeNode.cs" />
     <Compile Include="Assets\GraphicGUI\SpringShader\Demo\01_LowPoly\LowPoly.cs" />
+    <Compile Include="Assets\InvitationCode\Core\Invatation.cs" />
+    <Compile Include="Assets\InvitationCode\Core\Tools.cs" />
+    <Compile Include="Assets\InvitationCode\InvitationCodeTest.cs" />
     <Compile Include="Assets\Joint2D\Scripts\Ball.cs" />
     <Compile Include="Assets\Joint2D\Scripts\Joints_Sample.cs" />
     <Compile Include="Assets\Joint2D\Scripts\Line.cs" />
