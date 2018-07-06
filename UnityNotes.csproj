@@ -678,6 +678,7 @@
     <Compile Include="Assets\LoopScrellView\Scripts\EnhanceScrollView\UGUI\UDragEnhanceView.cs" />
     <Compile Include="Assets\LoopScrellView\Scripts\Example\MyNGUIEnhanceItem.cs" />
     <Compile Include="Assets\LoopScrellView\Scripts\Example\MyUGUIEnhanceItem.cs" />
+    <Compile Include="Assets\ResUpdater\ResTest\UpdaterManager.cs" />
     <Compile Include="Assets\ResUpdater\ResUpdater\AbstractCheckState.cs" />
     <Compile Include="Assets\ResUpdater\ResUpdater\BundleInfo.cs" />
     <Compile Include="Assets\ResUpdater\ResUpdater\CheckMd5State.cs" />
