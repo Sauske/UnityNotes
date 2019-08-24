@@ -16,3 +16,15 @@ Library/shadercompiler-UnityShaderCompiler.exe0.log
 UnityNotes.csproj
 UnityNotes.csproj
 UnityNotes.sln
+obj/Debug/Assembly-CSharp-Editor.csproj.CoreCompileInputs.cache
+obj/Debug/Assembly-CSharp-Editor.csprojAssemblyReference.cache
+obj/Debug/Assembly-CSharp.csproj.CoreCompileInputs.cache
+obj/Debug/Assembly-CSharp.csprojAssemblyReference.cache
+obj/Debug/build.force
+obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+obj/Debug/ECS.csproj.CoreCompileInputs.cache
+obj/Debug/ECS.csprojAssemblyReference.cache
+obj/Debug/UnityGameFramework.Editor.csproj.CoreCompileInputs.cache
+obj/Debug/UnityGameFramework.Editor.csprojAssemblyReference.cache
+obj/Debug/UnityGameFramework.Runtime.csproj.CoreCompileInputs.cache
+obj/Debug/UnityGameFramework.Runtime.csprojAssemblyReference.cache
