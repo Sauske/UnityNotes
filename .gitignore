@@ -28,3 +28,7 @@ obj/Debug/UnityGameFramework.Editor.csproj.CoreCompileInputs.cache
 obj/Debug/UnityGameFramework.Editor.csprojAssemblyReference.cache
 obj/Debug/UnityGameFramework.Runtime.csproj.CoreCompileInputs.cache
 obj/Debug/UnityGameFramework.Runtime.csprojAssemblyReference.cache
+*.bin
+.vs/UnityNotes/FileContentIndex/ff7da563-ce30-4ca1-9a2d-283e032b561c.vsidx
+.vs/UnityNotes/v17/.suo
+.vsconfig
