@@ -1,6 +1,8 @@
 
 /UnityNotes/Library
-*.csproj
 /UnityNotes/Temp
 /UnityNotes/Bundles
 /UnityNotes/Logs
+*.csproj
+/XMLib.AM.Example/Library
+/XMLib.AM.Example/Logs
