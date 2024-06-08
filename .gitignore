@@ -1,12 +1,14 @@
 
+/*************    UnityNotes   ******************/
 /UnityNotes/Library
 /UnityNotes/Temp
 /UnityNotes/Bundles
 /UnityNotes/Logs
 /UnityNotes/.vs
 /UnityNotes/obj
-
 *.csproj
+
+/*************    XMLib.AM.Example   ******************/
 /XMLib.AM.Example/Library
 /XMLib.AM.Example/Logs
 
