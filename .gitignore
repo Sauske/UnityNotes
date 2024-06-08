@@ -1,9 +1,6 @@
 
+/UnityNotes/Library
 *.csproj
-/Logs
-/Library
-/obj
-/Temp
-/.vs
-/UserSettings
-/Bundles
+/UnityNotes/Temp
+/UnityNotes/Bundles
+/UnityNotes/Logs
