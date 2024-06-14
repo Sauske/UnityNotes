@@ -14,3 +14,8 @@
 /XMLib.AM.Example/Temp
 /XMLib.AM.Example/obj
 /XMLib.AM.Example/.vs
+
+/*************    ShaderGraphLearn   ******************/
+/ShaderGraphLearn/.vs
+/ShaderGraphLearn/Library
+/ShaderGraphLearn/Logs
