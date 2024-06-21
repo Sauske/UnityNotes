@@ -75,8 +75,8 @@ Material:
     m_Ints: []
     m_Floats:
     - Vector1_1E49E4FE: 5
-    - Vector1_3F71021C: 0.5
-    - Vector1_70A2221E: 5
+    - Vector1_3F71021C: 0.85
+    - Vector1_70A2221E: 7
     - Vector1_87CA0D58: 0.5
     - Vector1_C173ED0D: 0.5
     - _AlphaClip: 0
