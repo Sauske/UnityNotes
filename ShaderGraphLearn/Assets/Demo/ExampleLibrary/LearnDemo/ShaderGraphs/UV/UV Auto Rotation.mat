@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: UV Offset Ping Pong
-  m_Shader: {fileID: -6465566751694194690, guid: 264675c145d266d469815c1f50e0960b,
+  m_Name: UV Auto Rotation
+  m_Shader: {fileID: -6465566751694194690, guid: ed84670ebe222904090649137580ada7,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -102,7 +102,7 @@ Material:
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _Speed: 2
+    - _Speed: 5
     - _SrcBlend: 1
     - _Surface: 0
     - _WorkflowMode: 1
