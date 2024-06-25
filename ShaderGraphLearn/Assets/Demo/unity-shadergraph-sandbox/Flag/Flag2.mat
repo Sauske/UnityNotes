@@ -7,14 +7,14 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Flag
-  m_Shader: {fileID: 4800000, guid: cfe5e14da1175f74eb0bab70036280f3, type: 3}
+  m_Name: Flag2
+  m_Shader: {fileID: 4800000, guid: 6edaddb7a549460449a3480b932d41f5, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -87,8 +87,8 @@ Material:
     m_Ints: []
     m_Floats:
     - Vector1_4178D042: 0
-    - Vector1_ADED4C32: 2
-    - Vector1_B8FC5B8C: 7.46
+    - Vector1_ADED4C32: 1
+    - Vector1_B8FC5B8C: 10
     - Vector1_C816B992: 0
     - Vector1_DC2D4766: 5
     - Vector1_F6B8DCE2: 1.6
