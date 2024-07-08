@@ -237,7 +237,7 @@ public class UIPlayTween : MonoBehaviour
 					isFinished = false;
 					break;
 				}
-				else if ((int)tw.direction != (int)disableWhenFinished)
+				else if ((int)tw.duration != (int)disableWhenFinished)
 				{
 					properDirection = false;
 				}
@@ -304,14 +304,14 @@ public class UIPlayTween : MonoBehaviour
 					if (playDirection == Direction.Toggle)
 					{
 						// Listen for tween finished messages
-						EventDelegate.Add(tw.onFinished, OnFinished, true);
+						// EventDelegate.Add(tw.onFinished, OnFinished, true);
 						tw.Toggle();
 					}
 					else
 					{
 						if (resetOnPlay || (resetIfDisabled && !tw.enabled)) tw.ResetToBeginning();
 						// Listen for tween finished messages
-						EventDelegate.Add(tw.onFinished, OnFinished, true);
+						// EventDelegate.Add(tw.onFinished, OnFinished, true);
 						tw.Play(forward);
 					}
 				}

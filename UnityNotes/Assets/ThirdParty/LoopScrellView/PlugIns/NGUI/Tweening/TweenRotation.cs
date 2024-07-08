@@ -1,19 +1,15 @@
-//----------------------------------------------
-//            NGUI: Next-Gen UI kit
-// Copyright © 2011-2014 Tasharen Entertainment
-//----------------------------------------------
-
 using UnityEngine;
 
 /// <summary>
 /// Tween the object's rotation.
 /// </summary>
 
-[AddComponentMenu("NGUI/Tween/Tween Rotation")]
+[AddComponentMenu("Tween/Tween Rotation")]
 public class TweenRotation : UITweener
 {
 	public Vector3 from;
 	public Vector3 to;
+	public bool quaternionLerp = false;
 
 	Transform mTrans;
 
@@ -34,7 +30,8 @@ public class TweenRotation : UITweener
 
 	protected override void OnUpdate (float factor, bool isFinished)
 	{
-		value = Quaternion.Euler(new Vector3(
+		value = quaternionLerp ? Quaternion.Slerp(Quaternion.Euler(from), Quaternion.Euler(to), factor) :
+			Quaternion.Euler(new Vector3(
 			Mathf.Lerp(from.x, to.x, factor),
 			Mathf.Lerp(from.y, to.y, factor),
 			Mathf.Lerp(from.z, to.z, factor)));

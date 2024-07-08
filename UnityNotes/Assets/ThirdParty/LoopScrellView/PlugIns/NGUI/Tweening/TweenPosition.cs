@@ -1,15 +1,10 @@
-//----------------------------------------------
-//            NGUI: Next-Gen UI kit
-// Copyright © 2011-2014 Tasharen Entertainment
-//----------------------------------------------
-
 using UnityEngine;
 
 /// <summary>
 /// Tween the object's position.
 /// </summary>
 
-[AddComponentMenu("NGUI/Tween/Tween Position")]
+[AddComponentMenu("Tween/Tween Position")]
 public class TweenPosition : UITweener
 {
 	public Vector3 from;
@@ -19,7 +14,6 @@ public class TweenPosition : UITweener
 	public bool worldSpace = false;
 
 	Transform mTrans;
-	UIRect mRect;
 
 	public Transform cachedTransform { get { if (mTrans == null) mTrans = transform; return mTrans; } }
 
@@ -38,20 +32,10 @@ public class TweenPosition : UITweener
 		}
 		set
 		{
-			if (mRect == null || !mRect.isAnchored || worldSpace)
-			{
-				if (worldSpace) cachedTransform.position = value;
-				else cachedTransform.localPosition = value;
-			}
-			else
-			{
-				value -= cachedTransform.localPosition;
-				NGUIMath.MoveRect(mRect, value.x, value.y);
-			}
+			if (worldSpace) cachedTransform.position = value;
+			else cachedTransform.localPosition = value;
 		}
 	}
-
-	void Awake () { mRect = GetComponent<UIRect>(); }
 
 	/// <summary>
 	/// Tween the value.
@@ -66,6 +50,25 @@ public class TweenPosition : UITweener
 	static public TweenPosition Begin (GameObject go, float duration, Vector3 pos)
 	{
 		TweenPosition comp = UITweener.Begin<TweenPosition>(go, duration);
+		comp.from = comp.value;
+		comp.to = pos;
+
+		if (duration <= 0f)
+		{
+			comp.Sample(1f, true);
+			comp.enabled = false;
+		}
+		return comp;
+	}
+
+	/// <summary>
+	/// Start the tweening operation.
+	/// </summary>
+
+	static public TweenPosition Begin (GameObject go, float duration, Vector3 pos, bool worldSpace)
+	{
+		TweenPosition comp = UITweener.Begin<TweenPosition>(go, duration);
+		comp.worldSpace = worldSpace;
 		comp.from = comp.value;
 		comp.to = pos;
 

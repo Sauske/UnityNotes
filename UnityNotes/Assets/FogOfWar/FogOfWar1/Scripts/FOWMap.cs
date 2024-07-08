@@ -220,6 +220,8 @@ namespace FogOfWar
                 if (c.r == 255)
                 {
                     colorBuffer[Index(tile.x, tile.y)].r = 0;
+                    colorBuffer[Index(tile.x, tile.y)].g = 0;
+                    colorBuffer[Index(tile.x, tile.y)].b = 0;
                 }
 
             }

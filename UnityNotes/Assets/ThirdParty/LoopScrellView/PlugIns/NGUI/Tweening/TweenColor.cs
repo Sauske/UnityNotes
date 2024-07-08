@@ -1,34 +1,48 @@
-//----------------------------------------------
-//            NGUI: Next-Gen UI kit
-// Copyright © 2011-2014 Tasharen Entertainment
-//----------------------------------------------
-
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Tween the object's color.
 /// </summary>
 
-[AddComponentMenu("NGUI/Tween/Tween Color")]
+[AddComponentMenu("Tween/Tween Color")]
 public class TweenColor : UITweener
 {
 	public Color from = Color.white;
 	public Color to = Color.white;
 
 	bool mCached = false;
-	UIWidget mWidget;
+	Graphic mGraphic;
 	Material mMat;
 	Light mLight;
+	SpriteRenderer mSr;
 
 	void Cache ()
 	{
 		mCached = true;
-		mWidget = GetComponent<UIWidget>();
+		mGraphic = GetComponent<Graphic>();
+		if (mGraphic != null) return;
+
+		mSr = GetComponent<SpriteRenderer>();
+		if (mSr != null) return;
+
+#if UNITY_4_3 || UNITY_4_5 || UNITY_4_6 || UNITY_4_7
+		Renderer ren = renderer;
+#else
 		Renderer ren = GetComponent<Renderer>();
-		if (ren != null) mMat = ren.material;
+#endif
+		if (ren != null)
+		{
+			mMat = ren.material;
+			return;
+		}
+
+#if UNITY_4_3 || UNITY_4_5 || UNITY_4_6 || UNITY_4_7
+		mLight = light;
+#else
 		mLight = GetComponent<Light>();
-		if (mWidget == null && mMat == null && mLight == null)
-			mWidget = GetComponentInChildren<UIWidget>();
+#endif
+		if (mLight == null) mGraphic = GetComponentInChildren<Graphic>();
 	}
 
 	[System.Obsolete("Use 'value' instead")]
@@ -43,18 +57,19 @@ public class TweenColor : UITweener
 		get
 		{
 			if (!mCached) Cache();
-			if (mWidget != null) return mWidget.color;
-			if (mLight != null) return mLight.color;
+			if (mGraphic != null) return mGraphic.color;
 			if (mMat != null) return mMat.color;
+			if (mSr != null) return mSr.color;
+			if (mLight != null) return mLight.color;
 			return Color.black;
 		}
 		set
 		{
 			if (!mCached) Cache();
-			if (mWidget != null) mWidget.color = value;
-			if (mMat != null) mMat.color = value;
-
-			if (mLight != null)
+			if (mGraphic != null) mGraphic.color = value;
+			else if (mMat != null) mMat.color = value;
+			else if (mSr != null) mSr.color = value;
+			else if (mLight != null)
 			{
 				mLight.color = value;
 				mLight.enabled = (value.r + value.g + value.b) > 0.01f;

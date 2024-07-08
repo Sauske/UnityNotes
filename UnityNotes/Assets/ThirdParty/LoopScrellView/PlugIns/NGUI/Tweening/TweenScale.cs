@@ -1,23 +1,16 @@
-//----------------------------------------------
-//            NGUI: Next-Gen UI kit
-// Copyright © 2011-2014 Tasharen Entertainment
-//----------------------------------------------
-
 using UnityEngine;
 
 /// <summary>
 /// Tween the object's local scale.
 /// </summary>
 
-[AddComponentMenu("NGUI/Tween/Tween Scale")]
+[AddComponentMenu("Tween/Tween Scale")]
 public class TweenScale : UITweener
 {
 	public Vector3 from = Vector3.one;
 	public Vector3 to = Vector3.one;
-	public bool updateTable = false;
 
 	Transform mTrans;
-	UITable mTable;
 
 	public Transform cachedTransform { get { if (mTrans == null) mTrans = transform; return mTrans; } }
 
@@ -33,16 +26,6 @@ public class TweenScale : UITweener
 	protected override void OnUpdate (float factor, bool isFinished)
 	{
 		value = from * (1f - factor) + to * factor;
-
-		if (updateTable)
-		{
-			if (mTable == null)
-			{
-				mTable = NGUITools.FindInParents<UITable>(gameObject);
-				if (mTable == null) { updateTable = false; return; }
-			}
-			mTable.repositionNow = true;
-		}
 	}
 
 	/// <summary>

@@ -1,8 +1,4 @@
-//----------------------------------------------
-//            NGUI: Next-Gen UI kit
-// Copyright © 2011-2014 Tasharen Entertainment
-//----------------------------------------------
-
+#if UNITY_EDITOR
 using UnityEngine;
 using UnityEditor;
 
@@ -12,7 +8,7 @@ public class TweenColorEditor : UITweenerEditor
 	public override void OnInspectorGUI ()
 	{
 		GUILayout.Space(6f);
-		NGUIEditorTools.SetLabelWidth(120f);
+		EditorGUIUtility.labelWidth = 120f;
 
 		TweenColor tw = target as TweenColor;
 		GUI.changed = false;
@@ -22,12 +18,13 @@ public class TweenColorEditor : UITweenerEditor
 
 		if (GUI.changed)
 		{
-			NGUIEditorTools.RegisterUndo("Tween Change", tw);
+			//NGUIEditorTools.RegisterUndo("Tween Change", tw);
 			tw.from = from;
 			tw.to = to;
-			NGUITools.SetDirty(tw);
+			//NGUITools.SetDirty(tw);
 		}
 
 		DrawCommonProperties();
 	}
 }
+#endif

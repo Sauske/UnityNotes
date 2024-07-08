@@ -1,35 +1,34 @@
-//----------------------------------------------
-//            NGUI: Next-Gen UI kit
-// Copyright © 2011-2014 Tasharen Entertainment
-//----------------------------------------------
-
 using UnityEngine;
 
 /// <summary>
 /// Tween the widget's size.
 /// </summary>
 
-[RequireComponent(typeof(UIWidget))]
-[AddComponentMenu("NGUI/Tween/Tween Height")]
+[RequireComponent(typeof(RectTransform))]
+[AddComponentMenu("Tween/Tween Height")]
 public class TweenHeight : UITweener
 {
-	public int from = 100;
-	public int to = 100;
-	public bool updateTable = false;
+	public float from = 100;
+	public float to = 100;
 
-	UIWidget mWidget;
-	UITable mTable;
+	[Tooltip("If set, 'from' value will be set to match the specified rectangle")]
+	public RectTransform fromTarget;
 
-	public UIWidget cachedWidget { get { if (mWidget == null) mWidget = GetComponent<UIWidget>(); return mWidget; } }
+	[Tooltip("If set, 'to' value will be set to match the specified rectangle")]
+	public RectTransform toTarget;
+
+	RectTransform mWidget;
+
+	public RectTransform cachedWidget { get { if (mWidget == null) mWidget = GetComponent<RectTransform>(); return mWidget; } }
 
 	[System.Obsolete("Use 'value' instead")]
-	public int height { get { return this.value; } set { this.value = value; } }
+	public float height { get { return this.value; } set { this.value = value; } }
 
 	/// <summary>
 	/// Tween's current value.
 	/// </summary>
 
-	public int value { get { return cachedWidget.height; } set { cachedWidget.height = value; } }
+	public float value { get { return cachedWidget.rect.height; } set { cachedWidget.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, value); } }
 
 	/// <summary>
 	/// Tween the value.
@@ -37,27 +36,20 @@ public class TweenHeight : UITweener
 
 	protected override void OnUpdate (float factor, bool isFinished)
 	{
-		value = Mathf.RoundToInt(from * (1f - factor) + to * factor);
+		if (fromTarget) from = fromTarget.rect.width;
+		if (toTarget) to = toTarget.rect.width;
 
-		if (updateTable)
-		{
-			if (mTable == null)
-			{
-				mTable = NGUITools.FindInParents<UITable>(gameObject);
-				if (mTable == null) { updateTable = false; return; }
-			}
-			mTable.repositionNow = true;
-		}
+		value = Mathf.RoundToInt(from * (1f - factor) + to * factor);
 	}
 
 	/// <summary>
 	/// Start the tweening operation.
 	/// </summary>
 
-	static public TweenHeight Begin (UIWidget widget, float duration, int height)
+	static public TweenHeight Begin (RectTransform widget, float duration, int height)
 	{
 		TweenHeight comp = UITweener.Begin<TweenHeight>(widget.gameObject, duration);
-		comp.from = widget.height;
+		comp.from = widget.rect.height;
 		comp.to = height;
 
 		if (duration <= 0f)

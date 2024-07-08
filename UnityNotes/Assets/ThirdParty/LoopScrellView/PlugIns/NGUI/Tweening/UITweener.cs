@@ -1,8 +1,3 @@
-//----------------------------------------------
-//            NGUI: Next-Gen UI kit
-// Copyright © 2011-2014 Tasharen Entertainment
-//----------------------------------------------
-
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
@@ -71,6 +66,16 @@ public abstract class UITweener : MonoBehaviour
 	[HideInInspector]
 	public float delay = 0f;
 
+	public enum DelayAffects
+	{
+		Forward,
+		Reverse,
+		Both,
+	}
+
+	[HideInInspector]
+	public DelayAffects delayAffects = DelayAffects.Both;
+
 	/// <summary>
 	/// How long is the duration of the tween?
 	/// </summary>
@@ -92,16 +97,25 @@ public abstract class UITweener : MonoBehaviour
 	[HideInInspector]
 	public int tweenGroup = 0;
 
+	[Tooltip("By default, Update() will be used for tweening. Setting this to 'true' will make the tween happen in FixedUpdate() insted.")]
+	public bool useFixedUpdate = false;
+
 	/// <summary>
 	/// Event delegates called when the animation finishes.
 	/// </summary>
 
-	[HideInInspector]
-	public List<EventDelegate> onFinished = new List<EventDelegate>();
+	//[HideInInspector]
+	//public List<EventDelegate> onFinished = new List<EventDelegate>();
 
 	// Deprecated functionality, kept for backwards compatibility
 	[HideInInspector] public GameObject eventReceiver;
 	[HideInInspector] public string callWhenFinished;
+
+	/// <summary>
+	/// Custom time scale for this tween, if desired. Can be used to slow down or speed up the animation.
+	/// </summary>
+
+	[System.NonSerialized] public float timeScale = 1f;
 
 	bool mStarted = false;
 	float mStartTime = 0f;
@@ -117,10 +131,12 @@ public abstract class UITweener : MonoBehaviour
 	{
 		get
 		{
+			if (duration == 0f) return 1000f;
+
 			if (mDuration != duration)
 			{
 				mDuration = duration;
-				mAmountPerDelta = Mathf.Abs((duration > 0f) ? 1f / duration : 1000f) * Mathf.Sign(mAmountPerDelta);
+				mAmountPerDelta = Mathf.Abs(1f / duration) * Mathf.Sign(mAmountPerDelta);
 			}
 			return mAmountPerDelta;
 		}
@@ -136,7 +152,7 @@ public abstract class UITweener : MonoBehaviour
 	/// Direction that the tween is currently playing in.
 	/// </summary>
 
-	public AnimationOrTween.Direction direction { get { return amountPerDelta < 0f ? AnimationOrTween.Direction.Reverse : AnimationOrTween.Direction.Forward; } }
+	//public AnimationOrTween.Direction direction { get { return amountPerDelta < 0f ? AnimationOrTween.Direction.Reverse : AnimationOrTween.Direction.Forward; } }
 
 	/// <summary>
 	/// This function is called by Unity when you add a component. Automatically set the starting values for convenience.
@@ -155,27 +171,32 @@ public abstract class UITweener : MonoBehaviour
 	/// Update as soon as it's started so that there is no delay.
 	/// </summary>
 
-	protected virtual void Start () { Update(); }
+	protected virtual void Start () { DoUpdate(); }
+	protected void Update () { if (!useFixedUpdate) DoUpdate(); }
+	protected void FixedUpdate () { if (useFixedUpdate) DoUpdate(); }
 
 	/// <summary>
 	/// Update the tweening factor and call the virtual update function.
 	/// </summary>
 
-	void Update ()
+	protected void DoUpdate ()
 	{
-		float delta = ignoreTimeScale ? RealTime.deltaTime : Time.deltaTime;
-		float time = ignoreTimeScale ? RealTime.time : Time.time;
+		float delta = ignoreTimeScale && !useFixedUpdate ? Time.unscaledDeltaTime : Time.deltaTime;
+		float time = ignoreTimeScale && !useFixedUpdate ? Time.unscaledTime : Time.time;
 
 		if (!mStarted)
 		{
+			delta = 0;
 			mStarted = true;
-			mStartTime = time + delay;
+			mStartTime = time;
+			if (mAmountPerDelta > 0f && (delayAffects == DelayAffects.Both || delayAffects == DelayAffects.Forward)) mStartTime += delay;
+			else if (mAmountPerDelta < 0f && (delayAffects == DelayAffects.Both || delayAffects == DelayAffects.Reverse)) mStartTime += delay;
 		}
 
 		if (time < mStartTime) return;
 
 		// Advance the sampling factor
-		mFactor += amountPerDelta * delta;
+		mFactor += (duration == 0f) ? 1f : amountPerDelta * delta * timeScale;
 
 		// Loop style simply resets the play factor after it exceeds 1.
 		if (style == Style.Loop)
@@ -206,83 +227,94 @@ public abstract class UITweener : MonoBehaviour
 		{
 			mFactor = Mathf.Clamp01(mFactor);
 			Sample(mFactor, true);
+			enabled = false;
 
-			// Disable this script unless the function calls above changed something
-			if (duration == 0f || (mFactor == 1f && mAmountPerDelta > 0f || mFactor == 0f && mAmountPerDelta < 0f))
-				enabled = false;
-
-			if (current == null)
+			if (current != this)
 			{
+				UITweener before = current;
 				current = this;
 
-				if (onFinished != null)
-				{
-					mTemp = onFinished;
-					onFinished = new List<EventDelegate>();
+				//if (onFinished != null)
+				//{
+				//	mTemp = onFinished;
+				//	onFinished = new List<EventDelegate>();
 
-					// Notify the listener delegates
-					EventDelegate.Execute(mTemp);
+				//	// Notify the listener delegates
+				//	EventDelegate.Execute(mTemp);
 
-					// Re-add the previous persistent delegates
-					for (int i = 0; i < mTemp.Count; ++i)
-					{
-						EventDelegate ed = mTemp[i];
-						if (ed != null) EventDelegate.Add(onFinished, ed, ed.oneShot);
-					}
-					mTemp = null;
-				}
+				//	// Re-add the previous persistent delegates
+				//	for (int i = 0; i < mTemp.Count; ++i)
+				//	{
+				//		EventDelegate ed = mTemp[i];
+				//		if (ed != null && !ed.oneShot) EventDelegate.Add(onFinished, ed, ed.oneShot);
+				//	}
+				//	mTemp = null;
+				//}
 
 				// Deprecated legacy functionality support
 				if (eventReceiver != null && !string.IsNullOrEmpty(callWhenFinished))
 					eventReceiver.SendMessage(callWhenFinished, this, SendMessageOptions.DontRequireReceiver);
 
-				current = null;
+				current = before;
 			}
 		}
 		else Sample(mFactor, false);
 	}
 
-	List<EventDelegate> mTemp = null;
+	//List<EventDelegate> mTemp = null;
 
 	/// <summary>
 	/// Convenience function -- set a new OnFinished event delegate (here for to be consistent with RemoveOnFinished).
 	/// </summary>
 
-	public void SetOnFinished (EventDelegate.Callback del) { EventDelegate.Set(onFinished, del); }
+	//public void SetOnFinished (EventDelegate.Callback del) { EventDelegate.Set(onFinished, del); }
 
-	/// <summary>
-	/// Convenience function -- set a new OnFinished event delegate (here for to be consistent with RemoveOnFinished).
-	/// </summary>
+	///// <summary>
+	///// Convenience function -- set a new OnFinished event delegate (here for to be consistent with RemoveOnFinished).
+	///// </summary>
 
-	public void SetOnFinished (EventDelegate del) { EventDelegate.Set(onFinished, del); }
+	//public void SetOnFinished (EventDelegate del) { EventDelegate.Set(onFinished, del); }
 
-	/// <summary>
-	/// Convenience function -- add a new OnFinished event delegate (here for to be consistent with RemoveOnFinished).
-	/// </summary>
+	///// <summary>
+	///// Convenience function -- add a new OnFinished event delegate (here for to be consistent with RemoveOnFinished).
+	///// </summary>
 
-	public void AddOnFinished (EventDelegate.Callback del) { EventDelegate.Add(onFinished, del); }
+	//public void AddOnFinished (EventDelegate.Callback del) { EventDelegate.Add(onFinished, del); }
 
-	/// <summary>
-	/// Convenience function -- add a new OnFinished event delegate (here for to be consistent with RemoveOnFinished).
-	/// </summary>
+	///// <summary>
+	///// Convenience function -- add a new OnFinished event delegate (here for to be consistent with RemoveOnFinished).
+	///// </summary>
 
-	public void AddOnFinished (EventDelegate del) { EventDelegate.Add(onFinished, del); }
+	//public void AddOnFinished (EventDelegate del) { EventDelegate.Add(onFinished, del); }
 
-	/// <summary>
-	/// Remove an OnFinished delegate. Will work even while iterating through the list when the tweener has finished its operation.
-	/// </summary>
+	///// <summary>
+	///// Remove an OnFinished delegate. Will work even while iterating through the list when the tweener has finished its operation.
+	///// </summary>
 
-	public void RemoveOnFinished (EventDelegate del)
-	{
-		if (onFinished != null) onFinished.Remove(del);
-		if (mTemp != null) mTemp.Remove(del);
-	}
+	//public void RemoveOnFinished (EventDelegate del)
+	//{
+	//	if (onFinished != null) onFinished.Remove(del);
+	//	if (mTemp != null) mTemp.Remove(del);
+	//}
 
 	/// <summary>
 	/// Mark as not started when finished to enable delay on next play.
 	/// </summary>
 
-	void OnDisable () { mStarted = false; }
+	protected virtual void OnDisable () { mStarted = false; }
+
+	/// <summary>
+	/// Immediately finish the tween animation, if it's active.
+	/// </summary>
+
+	public void Finish ()
+	{
+		if (enabled)
+		{
+			Sample(mAmountPerDelta > 0f ? 1f : 0f, true);
+			enabled = false;
+		}
+	}
 
 	/// <summary>
 	/// Sample the tween at the specified factor.
@@ -371,24 +403,32 @@ public abstract class UITweener : MonoBehaviour
 	/// Play the tween forward.
 	/// </summary>
 
+	[ContextMenu("Play forward")]
 	public void PlayForward () { Play(true); }
 
 	/// <summary>
 	/// Play the tween in reverse.
 	/// </summary>
 	
+	[ContextMenu("Play in reverse")]
 	public void PlayReverse () { Play(false); }
 
 	/// <summary>
 	/// Manually activate the tweening process, reversing it if necessary.
 	/// </summary>
 
-	public void Play (bool forward)
+	public virtual void Play (bool forward)
 	{
 		mAmountPerDelta = Mathf.Abs(amountPerDelta);
 		if (!forward) mAmountPerDelta = -mAmountPerDelta;
-		enabled = true;
-		Update();
+
+		if (!enabled)
+		{
+			enabled = true;
+			mStarted = false;
+		}
+
+		DoUpdate();
 	}
 
 	/// <summary>
@@ -403,17 +443,6 @@ public abstract class UITweener : MonoBehaviour
 		mFactor = (amountPerDelta < 0f) ? 1f : 0f;
 		Sample(mFactor, false);
 	}
-
-    /// <summary>
-    /// add 6.19 to reset tween to real begin
-    /// </summary>
-    /// <param name="factor"></param>
-    public void ResetToBeginningExtension(float factor = 0.0f)
-    {
-        mFactor = 0.0f;
-        mStarted = false;
-        Sample(mFactor, false);
-    }
 
 	/// <summary>
 	/// Manually start the tweening process, reversing its direction.
@@ -442,7 +471,7 @@ public abstract class UITweener : MonoBehaviour
 	/// Starts the tweening operation.
 	/// </summary>
 
-	static public T Begin<T> (GameObject go, float duration) where T : UITweener
+	static public T Begin<T> (GameObject go, float duration, float delay = 0f) where T : UITweener
 	{
 		T comp = go.GetComponent<T>();
 #if UNITY_FLASH
@@ -461,23 +490,30 @@ public abstract class UITweener : MonoBehaviour
 			}
 		}
 
-		if (comp == null) comp = go.AddComponent<T>();
+		if (comp == null)
+		{
+			comp = go.AddComponent<T>();
+
+			if (comp == null)
+			{
+				//Debug.LogError("Unable to add " + typeof(T) + " to " + NGUITools.GetHierarchy(go), go);
+				return null;
+			}
+		}
 #endif
 		comp.mStarted = false;
-		comp.duration = duration;
 		comp.mFactor = 0f;
-		comp.mAmountPerDelta = Mathf.Abs(comp.amountPerDelta);
+		comp.duration = duration;
+		comp.mDuration = duration;
+		comp.delay = delay;
+		comp.mAmountPerDelta = duration > 0f ? Mathf.Abs(1f / duration) : 1000f;
 		comp.style = Style.Once;
 		comp.animationCurve = new AnimationCurve(new Keyframe(0f, 0f, 0f, 1f), new Keyframe(1f, 1f, 1f, 0f));
 		comp.eventReceiver = null;
 		comp.callWhenFinished = null;
+		//comp.onFinished.Clear();
+		//if (comp.mTemp != null) comp.mTemp.Clear();
 		comp.enabled = true;
-
-		if (duration <= 0f)
-		{
-			comp.Sample(1f, true);
-			comp.enabled = false;
-		}
 		return comp;
 	}
 

@@ -1,8 +1,4 @@
-//----------------------------------------------
-//            NGUI: Next-Gen UI kit
-// Copyright © 2011-2014 Tasharen Entertainment
-//----------------------------------------------
-
+#if UNITY_EDITOR
 using UnityEngine;
 using UnityEditor;
 
@@ -12,22 +8,34 @@ public class TweenAlphaEditor : UITweenerEditor
 	public override void OnInspectorGUI ()
 	{
 		GUILayout.Space(6f);
-		NGUIEditorTools.SetLabelWidth(120f);
+		EditorGUIUtility.labelWidth = 120f;
 
 		TweenAlpha tw = target as TweenAlpha;
 		GUI.changed = false;
 
-		float from = EditorGUILayout.Slider("From", tw.from, 0f, 1f);
-		float to = EditorGUILayout.Slider("To", tw.to, 0f, 1f);
+		var from = EditorGUILayout.Slider("From", tw.from, 0f, 1f);
+		var to = EditorGUILayout.Slider("To", tw.to, 0f, 1f);
+
+		var ds = tw.autoCleanup;
+		var pn = tw.colorProperty;
+
+		if (tw.GetComponent<MeshRenderer>() != null)
+		{
+			ds = EditorGUILayout.Toggle("Auto-cleanup", tw.autoCleanup);
+			pn = EditorGUILayout.TextField("Color Property", tw.colorProperty);
+		}
 
 		if (GUI.changed)
 		{
-			NGUIEditorTools.RegisterUndo("Tween Change", tw);
+			//NGUIEditorTools.RegisterUndo("Tween Change", tw);
 			tw.from = from;
 			tw.to = to;
-			NGUITools.SetDirty(tw);
+			tw.autoCleanup = ds;
+			tw.colorProperty = pn;
+			//NGUITools.SetDirty(tw);
 		}
 
 		DrawCommonProperties();
 	}
 }
+#endif

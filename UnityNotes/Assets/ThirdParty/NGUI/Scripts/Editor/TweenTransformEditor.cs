@@ -1,8 +1,4 @@
-//----------------------------------------------
-//            NGUI: Next-Gen UI kit
-// Copyright © 2011-2014 Tasharen Entertainment
-//----------------------------------------------
-
+#if UNITY_EDITOR
 using UnityEngine;
 using UnityEditor;
 
@@ -10,3 +6,4 @@ using UnityEditor;
 public class TweenTransformEditor : UITweenerEditor
 {
 }
+#endif

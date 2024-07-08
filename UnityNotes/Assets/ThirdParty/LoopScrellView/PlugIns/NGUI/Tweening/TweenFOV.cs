@@ -1,8 +1,3 @@
-//----------------------------------------------
-//            NGUI: Next-Gen UI kit
-// Copyright © 2011-2014 Tasharen Entertainment
-//----------------------------------------------
-
 using UnityEngine;
 
 /// <summary>
@@ -10,7 +5,7 @@ using UnityEngine;
 /// </summary>
 
 [RequireComponent(typeof(Camera))]
-[AddComponentMenu("NGUI/Tween/Tween Field of View")]
+[AddComponentMenu("Tween/Tween Field of View")]
 public class TweenFOV : UITweener
 {
 	public float from = 45f;
@@ -18,7 +13,11 @@ public class TweenFOV : UITweener
 
 	Camera mCam;
 
+#if UNITY_4_3 || UNITY_4_5 || UNITY_4_6 || UNITY_4_7
+	public Camera cachedCamera { get { if (mCam == null) mCam = camera; return mCam; } }
+#else
 	public Camera cachedCamera { get { if (mCam == null) mCam = GetComponent<Camera>(); return mCam; } }
+#endif
 
 	[System.Obsolete("Use 'value' instead")]
 	public float fov { get { return this.value; } set { this.value = value; } }
