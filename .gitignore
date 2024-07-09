@@ -19,11 +19,14 @@
 /ShaderGraphLearn/.vs
 /ShaderGraphLearn/Library
 /ShaderGraphLearn/Logs
+/ShaderGraphLearn/obj
 /ShaderGraphLearn/Temp
+/ShaderGraphLearn/UserSettings
+
+/*************    FogOfWar   ******************/
 /FogOfWar/Library
 /FogOfWar/Temp
 /FogOfWar/Logs
 /FogOfWar/obj
 /FogOfWar/.vs
-/FogOfWar/UserSettings
 /FogOfWar/UserSettings
