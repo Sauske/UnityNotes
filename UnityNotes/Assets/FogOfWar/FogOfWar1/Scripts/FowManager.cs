@@ -27,7 +27,6 @@ namespace FogOfWar
             {
                 _instance.viewerList.Remove(viewer);
             }
-
         }
 
         public float FogSizeX=10;
@@ -57,13 +56,13 @@ namespace FogOfWar
       
         public int[] GetPos(FowViewer viewer)
         {
-            var x = (int)((viewer.transform.position.x - transform.position.x+FogSizeX/2) / MapTileSize);
-            var y = (int)((viewer.transform.position.z - transform.position.z+FogSizeY/2) / MapTileSize);
+            var x = (int)((viewer.transform.position.x - transform.position.x + FogSizeX / 2) / MapTileSize);
+            var y = (int)((viewer.transform.position.z - transform.position.z + FogSizeY / 2) / MapTileSize);
             return new int[] { x, y };
         }
         public Vector3 GetV3(int[] pos)
         {
-            return new Vector3(pos[0] * MapTileSize, 0, pos[1] * MapTileSize)+new Vector3(MapTileSize/2,0,MapTileSize/2)+transform.position-new Vector3(FogSizeX/2,0,FogSizeY/2);
+            return new Vector3(pos[0] * MapTileSize, 0, pos[1] * MapTileSize) + new Vector3(MapTileSize / 2, 0, MapTileSize / 2) + transform.position - new Vector3(FogSizeX / 2, 0, FogSizeY / 2);
         }
         public void InitMap(int[,] mapData)
         {

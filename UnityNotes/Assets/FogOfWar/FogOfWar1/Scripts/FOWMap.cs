@@ -253,10 +253,7 @@ namespace FogOfWar
                     map.Add(new FOWTile(mapData[i, j], i, j));
                     colorBuffer[i] = new Color32(0, 0, 0, 255);
                 }
-
             }
-
-
         }
         /// <summary>
         /// 释放缓存资源
@@ -295,8 +292,7 @@ namespace FogOfWar
         /// <returns></returns>
         public bool CantDisplay(FOWTile ob, int playerX, int playerY)
         {
-            return FOWTool.CantDisplay(ob.x - playerX, ob.y - playerY, x - playerX, y - playerY,
-                Mathf.PI / (6 + ob.Distance(playerX, playerY)/1.2f));
+            return FOWTool.CantDisplay(ob.x - playerX, ob.y - playerY, x - playerX, y - playerY, Mathf.PI / (6 + ob.Distance(playerX, playerY) / 1.2f));
         }
         /// <summary>
         /// 以本网格为障碍物对列表中的网格进行是否遮挡判断
@@ -335,7 +331,6 @@ namespace FogOfWar
         public static bool InMap(int x, int y, int mapWidth, int mapHeight)
         {
             return (x >= 0 && y >= 0 && x < mapWidth && y < mapHeight);
-
         }
         /// <summary>
         /// 计算区域是否被障碍物阻挡视野
@@ -365,15 +360,12 @@ namespace FogOfWar
             var dot = x1 * x2 + y1 * y2;
             if (dot > 0)
             {
-
                 return Angle(k1, k2) < (z);
-
             }
             else
             {
                 return false;
             }
-
         }
         /// <summary>
         /// 根据斜率计算两直线角度
@@ -382,8 +374,5 @@ namespace FogOfWar
         {
             return Mathf.Abs((k2 - k1) / (1 + k1 * k2));
         }
-
-
     }
-
 }
