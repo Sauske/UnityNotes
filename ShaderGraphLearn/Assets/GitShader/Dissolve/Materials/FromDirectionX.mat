@@ -71,9 +71,9 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _Direction: 1
-    - _DistanceEffect: 0.888
+    - _DistanceEffect: 1
     - _DstBlend: 0
-    - _EdgeLength: 0.1
+    - _EdgeLength: 0.079
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -87,7 +87,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Threshold: 0.457
+    - _Threshold: 0
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:

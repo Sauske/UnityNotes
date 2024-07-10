@@ -60,7 +60,7 @@ Shader "Kaima/Other/MoveStipple"
 				float threshold = thresholdMatrix[screenPos.x % 4][screenPos.y % 4] / 17;
 				float alpha = saturate((length(i.cameraPos.xyz) - _FadeNear) / (_FadeFar - _FadeNear));
 				clip(alpha - threshold);
-				
+								
 				return float4(1, 1, 1, 1);
 			}
 			ENDCG

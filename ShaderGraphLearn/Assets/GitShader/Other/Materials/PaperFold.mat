@@ -80,7 +80,7 @@ Material:
     - _Double: 0
     - _DoubleFold: 0
     - _DstBlend: 0
-    - _FoldAngle: 1
+    - _FoldAngle: 131
     - _FoldPos: -0.04
     - _GlossMapScale: 1
     - _Glossiness: 0.5

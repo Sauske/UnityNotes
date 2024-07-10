@@ -62,7 +62,7 @@ Material:
     - _BornY: 0.55
     - _BottomY: -0.55
     - _BumpScale: 1
-    - _Control: 1.159
+    - _Control: 0
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0

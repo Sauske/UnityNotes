@@ -61,7 +61,7 @@ Material:
     m_Floats:
     - _BottomY: -0.55
     - _BumpScale: 1
-    - _Control: 0.995
+    - _Control: 0
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0

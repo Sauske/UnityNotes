@@ -15,7 +15,7 @@
 		Pass
 		{
 			ZWrite On
-			Cull Back
+			Cull Off  // Back
 			Blend SrcAlpha OneMinusSrcAlpha
 			
 			CGPROGRAM
@@ -68,7 +68,7 @@
 		Pass
 		{
 			ZWrite On
-			Cull Front
+			//Cull Front
 			Blend SrcAlpha OneMinusSrcAlpha
 			
 			CGPROGRAM

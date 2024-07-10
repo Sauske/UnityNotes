@@ -78,7 +78,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DistanceEffect: 0.64
     - _DstBlend: 0
-    - _EdgeWidth: 0.0968
+    - _EdgeWidth: 0.109
     - _FlyIntensity: 0.214
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -92,7 +92,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Threshold: 0.52
+    - _Threshold: 0
     - _UVSec: 0
     - _VertexOrDirection: 1
     - _ZWrite: 1
