@@ -139,9 +139,9 @@ Material:
     - Float_A235A670: 0.27
     - Float_F753BD1D: 0.02
     - Vector1_A235A670: 0.2
-    - Vector1_D7BB210A: 0.2
+    - Vector1_D7BB210A: 0
     - Vector1_F753BD1D: 0.045
-    - Vector1_F9BFF547: 0.02
+    - Vector1_F9BFF547: 0.063
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
