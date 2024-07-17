@@ -3240,7 +3240,7 @@
         "m_SerializableColors": []
     },
     "m_Material": {
-        "type": 0,
+        "type": 5,
         "range": 0.5,
         "indexOfRefraction": 1.0
     }
@@ -15332,7 +15332,7 @@
     "m_Group": {
         "m_Id": ""
     },
-    "m_Name": "Procedural_Noise (Custom Function)",
+    "m_Name": "Procedural_Shape (Custom Function)",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
@@ -15359,7 +15359,7 @@
         "m_SerializableColors": []
     },
     "m_SourceType": 0,
-    "m_FunctionName": "Procedural_Noise",
+    "m_FunctionName": "Procedural_Shape",
     "m_FunctionSource": "",
     "m_FunctionBody": "Enter function body here..."
 }
@@ -17422,7 +17422,7 @@
     "m_Group": {
         "m_Id": ""
     },
-    "m_Name": "SubGraph (Custom Function)",
+    "m_Name": "Utility (Custom Function)",
     "m_DrawState": {
         "m_Expanded": true,
         "m_Position": {
@@ -17449,7 +17449,7 @@
         "m_SerializableColors": []
     },
     "m_SourceType": 0,
-    "m_FunctionName": "SubGraph",
+    "m_FunctionName": "Utility",
     "m_FunctionSource": "",
     "m_FunctionBody": "Enter function body here..."
 }
