@@ -30,3 +30,11 @@
 /FogOfWar/obj
 /FogOfWar/.vs
 /FogOfWar/UserSettings
+
+/*************    NavmeshComponents   ******************/
+/NavmeshComponents/Library
+/NavmeshComponents/Temp
+/NavmeshComponents/Logs
+/NavmeshComponents/obj
+/NavmeshComponents/.vs
+/NavmeshComponents/UserSettings
