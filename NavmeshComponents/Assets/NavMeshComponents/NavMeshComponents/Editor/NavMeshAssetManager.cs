@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
-using UnityEditor.Experimental.SceneManagement;
+
 using UnityEditor.SceneManagement;
 using UnityEngine.AI;
 using UnityEngine;
@@ -132,8 +132,9 @@ namespace UnityEditor.AI
         {
             var emptySources = new List<NavMeshBuildSource>();
             var emptyBounds = new Bounds();
-            return UnityEngine.AI.NavMeshBuilder.BuildNavMeshData(surface.GetBuildSettings(), emptySources, emptyBounds
-                , surface.transform.position, surface.transform.rotation);
+            
+            return UnityEngine.AI.NavMeshBuilder.BuildNavMeshData(surface.GetBuildSettings(),
+                emptySources, emptyBounds,surface.transform.position, surface.transform.rotation);
         }
 
         void UpdateAsyncBuildOperations()
