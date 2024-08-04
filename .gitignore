@@ -1,3 +1,35 @@
+/*************    Effects   ******************/
+/Effects/Library
+/Effects/Temp
+/Effects/Logs
+/Effects/obj
+/Effects/.vs
+/Effects/UserSettings
+
+/*************    FogOfWar   ******************/
+/FogOfWar/Library
+/FogOfWar/Temp
+/FogOfWar/Logs
+/FogOfWar/obj
+/FogOfWar/.vs
+/FogOfWar/UserSettings
+
+/*************    NavmeshComponents   ******************/
+/NavmeshComponents/Library
+/NavmeshComponents/Temp
+/NavmeshComponents/Logs
+/NavmeshComponents/obj
+/NavmeshComponents/.vs
+/NavmeshComponents/UserSettings
+
+/*************    ShaderGraphLearn   ******************/
+/ShaderGraphLearn/.vs
+/ShaderGraphLearn/Library
+/ShaderGraphLearn/Logs
+/ShaderGraphLearn/obj
+/ShaderGraphLearn/Temp
+/ShaderGraphLearn/UserSettings
+
 
 /*************    UnityNotes   ******************/
 /UnityNotes/Library
@@ -15,26 +47,8 @@
 /XMLib.AM.Example/obj
 /XMLib.AM.Example/.vs
 
-/*************    ShaderGraphLearn   ******************/
-/ShaderGraphLearn/.vs
-/ShaderGraphLearn/Library
-/ShaderGraphLearn/Logs
-/ShaderGraphLearn/obj
-/ShaderGraphLearn/Temp
-/ShaderGraphLearn/UserSettings
 
-/*************    FogOfWar   ******************/
-/FogOfWar/Library
-/FogOfWar/Temp
-/FogOfWar/Logs
-/FogOfWar/obj
-/FogOfWar/.vs
-/FogOfWar/UserSettings
 
-/*************    NavmeshComponents   ******************/
-/NavmeshComponents/Library
-/NavmeshComponents/Temp
-/NavmeshComponents/Logs
-/NavmeshComponents/obj
-/NavmeshComponents/.vs
-/NavmeshComponents/UserSettings
+
+
+
