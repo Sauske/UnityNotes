@@ -1,6 +1,7 @@
 # Unity 通用Buff系统
 该项目是一个通用的Buff系统，旨在帮助Unity开发者轻松实现游戏中的Buff效果。该系统能够轻松集成到现有项目，你可以方便地添加、管理和应用自定义逻辑的Buff。
 
+[项目地址](https://github.com/NoSLoofah/Unity-Buff-System) 
 [教程视频](https://www.bilibili.com/video/BV16e411H7Vx/)
 
 ## 特性
