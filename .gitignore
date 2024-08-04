@@ -1,3 +1,11 @@
+/*************    AI   ******************/
+/AI/Library
+/AI/Temp
+/AI/Logs
+/AI/obj
+/AI/.vs
+/AI/UserSettings
+
 /*************    Effects   ******************/
 /Effects/Library
 /Effects/Temp
