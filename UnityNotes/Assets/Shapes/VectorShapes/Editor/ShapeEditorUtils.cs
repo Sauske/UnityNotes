@@ -26,25 +26,41 @@ static internal class ShapeEditorUtils
 
 	public static int GetCurrentSelectedPoint(NativeArray<int> pointControlIds, NativeArray<int> inTangentControlIds, NativeArray<int> outTangentControlIds)
 	{
+
 		var hotControl = GUIUtility.hotControl;
-		int newPointId = pointControlIds.IndexOf(hotControl);
-		if (newPointId != -1)
+        for (int idx = 0;  idx < pointControlIds.Length;idx++)
 		{
-			return newPointId;
+			if(hotControl == pointControlIds[idx])
+			{
+				return pointControlIds[idx];
+			}
 		}
+        for (int idx = 0; idx < outTangentControlIds.Length; idx++)
+        {
+            if (hotControl == outTangentControlIds[idx])
+            {
+                return outTangentControlIds[idx];
+            }
+        }
+        for (int idx = 0; idx < inTangentControlIds.Length; idx++)
+        {
+            if (hotControl == inTangentControlIds[idx])
+            {
+                return inTangentControlIds[idx];
+            }
+        }
 
+        //newPointId = outTangentControlIds.IndexOf(hotControl);
+        //if (newPointId != -1)
+        //{
+        //	return newPointId;
+        //}
 
-		newPointId = outTangentControlIds.IndexOf(hotControl);
-		if (newPointId != -1)
-		{
-			return newPointId;
-		}
+        //newPointId = inTangentControlIds.IndexOf(hotControl);
+        //if (newPointId != -1)
+        //	return newPointId;
 
-		newPointId = inTangentControlIds.IndexOf(hotControl);
-		if (newPointId != -1)
-			return newPointId;
-
-		return -1;
+        return -1;
 	}
 
 	static int previewLineCount = 0;
