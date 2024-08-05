@@ -26,12 +26,12 @@ namespace SkierFramework
 
         public static AsyncOperationHandle GetAllConfigs(Action<List<UIConfig>> callback) 
         {
-            return ResourceManager.Instance.LoadAssetAsync<UnityEngine.TextAsset>(UIConfigPath, (textAsset) =>
+            return ResourceManager.Instance.LoadAssetAsync<TextAsset>(UIConfigPath, (textAsset) =>
             {
                 if (textAsset != null)
                 {
                     var list = new List<UIConfig>();
-                    var uiConfigs = Newtonsoft.Json.JsonConvert.DeserializeObject<List<UIConfigJson>>(textAsset.text);
+                    var uiConfigs = JsonUtility.FromJson<List<UIConfigJson>>(textAsset.text);// Newtonsoft.Json.JsonConvert.DeserializeObject<List<UIConfigJson>>(textAsset.text);
                     foreach (var config in uiConfigs)
                     {
                         if (!Enum.TryParse<UILayer>(config.uiLayer, out UILayer layer))

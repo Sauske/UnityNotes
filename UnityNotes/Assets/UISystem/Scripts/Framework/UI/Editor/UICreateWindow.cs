@@ -7,7 +7,6 @@ using System.Text.RegularExpressions;
 using System.IO;
 using SkierFramework;
 using System;
-using Newtonsoft.Json;
 
 public class UICreateWindow : EditorWindow
 {
@@ -253,7 +252,7 @@ public class UICreateWindow : EditorWindow
             }
         }
         File.Delete(UIConfig);
-        File.WriteAllText(UIConfig, JsonConvert.SerializeObject(list, Formatting.Indented));
+        File.WriteAllText(UIConfig, JsonUtility.ToJson(list));// JsonConvert.SerializeObject(list, Formatting.Indented));
     }
 
     private void TryGetPath(ref string path, string pathName, string endsWith)
@@ -312,7 +311,7 @@ public class UICreateWindow : EditorWindow
             try
             {
                 var json = File.ReadAllText(UIConfig);
-                var list = JsonConvert.DeserializeObject<List<UIConfigJson>>(json);
+                var list = JsonUtility.FromJson<List<UIConfigJson>>(json);// JsonConvert.DeserializeObject<List<UIConfigJson>>(json);
                 foreach (var item in list)
                 {
                     uiJsonDatas.AddOrUpdate(item.uiType, item);
