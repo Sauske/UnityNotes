@@ -6,6 +6,14 @@
 /AI/.vs
 /AI/UserSettings
 
+/*************    Algorithms   ******************/
+/Algorithms/Library
+/Algorithms/Temp
+/Algorithms/Logs
+/Algorithms/obj
+/Algorithms/.vs
+/Algorithms/UserSettings
+
 /*************    Effects   ******************/
 /Effects/Library
 /Effects/Temp
@@ -37,7 +45,6 @@
 /ShaderGraphLearn/obj
 /ShaderGraphLearn/Temp
 /ShaderGraphLearn/UserSettings
-
 
 /*************    UnityNotes   ******************/
 /UnityNotes/Library
