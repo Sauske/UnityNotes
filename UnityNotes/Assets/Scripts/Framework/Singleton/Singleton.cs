@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace SFramework
@@ -28,17 +29,32 @@ namespace SFramework
         }
 
         /// <summary>
-        /// 没有意义的接口，只是让外部以为在调用了初始化，看起来好看点
+        /// 自定义初始化行为
         /// </summary>
-        public void Init()
+        protected virtual void OnInit()
+        {
+            //if (this is IUpdate)
+            //{
+            //    GameMain.Instance.AddModule(this as IUpdate);
+            //}
+
+            //if (this is IModule)
+            //{
+            //    GameMain.Instance.AddModule(this as IModule);
+            //}
+
+            //if (this is ILogin)
+            //{
+            //    LoginMgr.Instance.RegisterLoginModule(this as ILogin);
+            //}
+        }
+
+        public void Update()
         {
 
         }
 
-        /// <summary>
-        /// 自定义初始化行为
-        /// </summary>
-        protected virtual void OnInit()
+        protected virtual void OnUpdate(float delta)
         {
 
         }
@@ -51,22 +67,6 @@ namespace SFramework
                 return;
             }
             _instance = (T)(System.Object)this;
-
-
-            //if (this is IUpdate)
-            //{
-            //    GameMain.Instance.AddModule(this as IUpdate);
-            //}
-
-            //if (this is IModule)
-            //{
-            //    GameMain.Instance.AddModule(this as IModule);
-            //}
-
-            //if (this is ILoginManager)
-            //{
-            //    LoginMgr.Instance.RegisterLoginModule(this as ILoginManager);
-            //}
         }
     }
 }
