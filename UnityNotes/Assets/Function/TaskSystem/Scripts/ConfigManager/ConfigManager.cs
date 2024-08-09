@@ -46,18 +46,16 @@ namespace SkierFramework
         }
         public T GetConfig<T>(int id) where T : IConfig
         {
-            if (configs != null
-                && configs.TryGetValue(typeof(T), out var map)
-                && map.TryGetValue(id, out var config))
+            if (configs != null && configs.TryGetValue(typeof(T), out var map) && map.TryGetValue(id, out var config))
             {
                 return (T)config;
             }
             return default(T);
         }
+
         public Dictionary<int, IConfig> GetAll<T>() where T : IConfig
         {
-            if (configs != null
-                && configs.TryGetValue(typeof(T), out var map))
+            if (configs != null && configs.TryGetValue(typeof(T), out var map))
             {
                 return map;
             }

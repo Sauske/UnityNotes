@@ -11,9 +11,11 @@ namespace SkierFramework
     {
         private const string WindowName = "任务调试";
 
-        [MenuItem("Tools/系统/"+ WindowName)]
+        [MenuItem("Tools/"+ WindowName)]
         public static void OpenWindow()
         {
+            TaskSystem.Instance.InitSystem();
+
             var window = GetWindow<TaskWindow>(WindowName);
             if (window == null)
                 window = CreateWindow<TaskWindow>(WindowName);
