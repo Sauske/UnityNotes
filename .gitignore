@@ -19,6 +19,13 @@
 /Effects/obj
 /Effects/.vs
 
+/*************    ExcelTool   ******************/
+/ExcelTool/Library
+/ExcelTool/Temp
+/ExcelTool/Logs
+/ExcelTool/obj
+/ExcelTool/.vs
+
 /*************    FogOfWar   ******************/
 /FogOfWar/Library
 /FogOfWar/Temp
