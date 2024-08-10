@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.code-philosophy.luban": "file:F:/Github/luban_unity",
     "com.unity.ide.visualstudio": "2.0.22",
     "com.unity.textmeshpro": "3.0.9",
     "com.unity.ugui": "1.0.0",
