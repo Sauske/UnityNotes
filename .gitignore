@@ -47,6 +47,13 @@
 /ShaderGraphLearn/obj
 /ShaderGraphLearn/Temp
 
+/*************    ThirdParty   ******************/
+/ThirdParty/.vs
+/ThirdParty/Library
+/ThirdParty/Logs
+/ThirdParty/obj
+/ThirdParty/Temp
+
 /*************    UnityNotes   ******************/
 /UnityNotes/Library
 /UnityNotes/Temp
