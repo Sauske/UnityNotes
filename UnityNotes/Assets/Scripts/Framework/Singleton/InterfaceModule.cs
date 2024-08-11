@@ -1,11 +1,13 @@
-using System;
+ï»¿using System;
 
 namespace SFramework
 {
 
     public interface IModule : IDisposable
     {
-        void FreeMemory();
+        void Initialize();
+
+        void OnUpdate(float delta);
     }
 
     public interface IUpdate
@@ -14,19 +16,32 @@ namespace SFramework
     }
 
     /// <summary>
-    /// µÇÂ¼Ä£¿é½Ó¿Ú£¬ĞèÒªÔÚµÇÂ¼³É¹¦×ö³õÊ¼»¯»òÕß×¢Ïúºó´¦ÀíÊÂ¼şµÄĞèÒªÊµÏÖ¸Ã½Ó¿Ú
-    /// ÕâÀïµ÷ÓÃÎŞ·¨±£Ö¤¸÷¸öÄ£¿éµÄµ÷ÓÃË³Ğò
+    /// ç™»å½•æ¨¡å—æ¥å£ï¼Œéœ€è¦åœ¨ç™»å½•æˆåŠŸåšåˆå§‹åŒ–æˆ–è€…æ³¨é”€åå¤„ç†äº‹ä»¶çš„éœ€è¦å®ç°è¯¥æ¥å£
+    /// è¿™é‡Œè°ƒç”¨æ— æ³•ä¿è¯å„ä¸ªæ¨¡å—çš„è°ƒç”¨é¡ºåº
     /// </summary>
     public interface ILogin
     {
         /// <summary>
-        /// µÇÂ¼³É¹¦£¬ÕâÀïÖ»¸ºÔğ´¦Àí×Ô¼ºÄ£¿éÄÚ²¿µÄÊı¾İºÍ×´Ì¬Î¬»¤
+        /// ç™»å½•æˆåŠŸï¼Œè¿™é‡Œåªè´Ÿè´£å¤„ç†è‡ªå·±æ¨¡å—å†…éƒ¨çš„æ•°æ®å’ŒçŠ¶æ€ç»´æŠ¤
         /// </summary>
         public void OnLogin();
         /// <summary>
-        /// ÍË³öµÇÂ¼³É¹¦
+        /// é€€å‡ºç™»å½•æˆåŠŸ
         /// </summary>
         public void OnLogout();
+    }
+
+
+    /// <summary>
+    /// æ¡ˆä¾‹ Bag
+    /// </summary>
+    public class BagModule : IModule
+    {
+        public void Initialize() { }
+
+        public void OnUpdate(float delta) { }
+
+        public void Dispose() { }
     }
 }
 

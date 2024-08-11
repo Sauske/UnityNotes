@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using UnityEngine;
 
 namespace SFramework
@@ -33,40 +33,20 @@ namespace SFramework
         /// </summary>
         protected virtual void OnInit()
         {
-            //if (this is IUpdate)
-            //{
-            //    GameMain.Instance.AddModule(this as IUpdate);
-            //}
-
-            //if (this is IModule)
-            //{
-            //    GameMain.Instance.AddModule(this as IModule);
-            //}
-
-            //if (this is ILogin)
-            //{
-            //    LoginMgr.Instance.RegisterLoginModule(this as ILogin);
-            //}
-        }
-
-        public void Update()
-        {
-
-        }
-
-        protected virtual void OnUpdate(float delta)
-        {
-
-        }
-
-        public Singleton()
-        {
-            if (_instance != null)
+            if (this is IUpdate)
             {
-                Debug.LogError("Cannot have two instances in singleton");
-                return;
+                ModuleMgr.AddUpdate(this as IUpdate);
             }
-            _instance = (T)(System.Object)this;
+
+            if (this is IModule)
+            {
+                ModuleMgr.AddModule(this as IModule);
+            }
+
+            if (this is ILogin)
+            {
+                ModuleMgr.AddLogin(this as ILogin);
+            }
         }
     }
 }
