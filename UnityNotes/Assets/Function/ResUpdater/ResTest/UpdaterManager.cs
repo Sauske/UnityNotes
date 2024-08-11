@@ -233,19 +233,19 @@ namespace ResUpdater
             switch (state)
             {
                 case UpdateState.CheckMd5:
-                    str = Localization.Get("update_jianchawenjian");
+                   // str = Localization.Get("update_jianchawenjian");
                     break;
                 case UpdateState.CheckVersion:
-                    str = Localization.Get("update_jianchabanben");
+                   // str = Localization.Get("update_jianchabanben");
                     break;
                 case UpdateState.DownloadRes:
-                    str = Localization.Get("update_xiazaiziyuan");
+                   // str = Localization.Get("update_xiazaiziyuan");
                     break;
                 case UpdateState.Failed:
-                    str = Localization.Get("update_gengxinshibai");
+                   // str = Localization.Get("update_gengxinshibai");
                     break;
                 case UpdateState.Succeed:
-                    str = Localization.Get("update_gengxinchenggong");
+                   // str = Localization.Get("update_gengxinchenggong");
                     break;
             }
             return str;
@@ -262,22 +262,22 @@ namespace ResUpdater
             switch (type)
             {
                 case UpdateErrorType.NetWorkErr:
-                    msg = Localization.Get("update_wangluoshibai");
+                  //  msg = Localization.Get("update_wangluoshibai");
                     break;
                 case UpdateErrorType.NoSpace:
-                    msg = Localization.Get("update_kongjianbuzu");
+                  //  msg = Localization.Get("update_kongjianbuzu");
                     break;
                 case UpdateErrorType.ReadMd5Err:
-                    msg = Localization.Get("update_jianchawenjianshibai");
+                  //  msg = Localization.Get("update_jianchawenjianshibai");
                     break;
                 case UpdateErrorType.ReadVersionErr:
-                    msg = Localization.Get("update_jianchabanbenshibai");
+                  //  msg = Localization.Get("update_jianchabanbenshibai");
                     break;
                 case UpdateErrorType.DownloadMd5Err:
-                    msg = Localization.Get("update_xiazaiwenjianshibai");
+                  //  msg = Localization.Get("update_xiazaiwenjianshibai");
                     break;
                 case UpdateErrorType.DownloadVersionErr:
-                    msg = Localization.Get("update_xiazaibanbenshibai");
+                  //  msg = Localization.Get("update_xiazaibanbenshibai");
                     break;
             }
 

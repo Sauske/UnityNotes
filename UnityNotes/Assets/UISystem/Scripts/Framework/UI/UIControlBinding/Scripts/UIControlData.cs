@@ -133,8 +133,8 @@ namespace SkierFramework
             { "VideoPlayer", typeof(UnityEngine.Video.VideoPlayer) },
             { "CanvasGroup", typeof(CanvasGroup) },
             { "PlayableDirector", typeof(PlayableDirector) },
-            { "UITweener", typeof(UITweener) },
-
+            //{ "UITweener", typeof(UITweener) },
+            
             ////////自定义控件类型请放这里////////
 
 

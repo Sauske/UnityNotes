@@ -1,18 +1,20 @@
-using SFramework;
+ï»¿using SFramework;
 using System;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 namespace SFramework
 {
     public class RTTScene
     {
         /// <summary>
-        /// RTT³¡¾°µÄÊıÁ¿£¬ÓÃÓÚÎ»ÖÃÆ«ÒÆ
+        /// RTTåœºæ™¯çš„æ•°é‡ï¼Œç”¨äºä½ç½®åç§»
         /// </summary>
         protected static int count = 0;
 
         /// <summary>
-        /// ³¡¾°¼äµÄÎ»ÖÃ¼ä¸ô
+        /// åœºæ™¯é—´çš„ä½ç½®é—´éš”
         /// </summary>
         protected static int space = 100;
 
@@ -46,15 +48,15 @@ namespace SFramework
         /// </summary>
         protected Camera cameraBk;
 
-        protected UITexture bkTexture;
+        protected RawImage bkTexture;
 
         /// <summary>
-        /// ×îÖÕµÄäÖÈ¾ÎÆÀí
+        /// æœ€ç»ˆçš„æ¸²æŸ“çº¹ç†
         /// </summary>
         protected RenderTexture targetTexture;
 
         /// <summary>
-        /// Êä³öÎÆÀí´óĞ¡
+        /// è¾“å‡ºçº¹ç†å¤§å°
         /// </summary>
         protected int renderTextureWidth = 256;
         protected int renderTextureHeight = 256;
@@ -62,22 +64,22 @@ namespace SFramework
         protected Vector3 rootPosition = Vector3.zero;
 
         /// <summary>
-        /// Ä¿±êÎ»ÖÃ
+        /// ç›®æ ‡ä½ç½®
         /// </summary>
         protected Vector3 targetPos = Vector3.zero;
 
         /// <summary>
-        /// Ä¿±êËõ·Å
+        /// ç›®æ ‡ç¼©æ”¾
         /// </summary>
         protected Vector3 targetScale = Vector3.one;
 
         /// <summary>
-        /// Ä¿±êYÖáĞı×ª
+        /// ç›®æ ‡Yè½´æ—‹è½¬
         /// </summary>
         protected float targetRotationY;
 
         /// <summary>
-        /// äÖÈ¾Ä£ĞÍ
+        /// æ¸²æŸ“æ¨¡å‹
         /// </summary>
         protected RTTModel renderModel;
 
@@ -90,7 +92,7 @@ namespace SFramework
         }
 
         /// <summary>
-        /// ×ÊÔ´ÒıÓÃ
+        /// èµ„æºå¼•ç”¨
         /// </summary>
         //protected AssetLoadAgent LoadAgent;
 
@@ -193,7 +195,7 @@ namespace SFramework
             if (!LoadSceneResource(sceneConfigPrefab))
                 return;
 
-            // °ó¶¨µ½¸ù½Úµã
+            // ç»‘å®šåˆ°æ ¹èŠ‚ç‚¹
             configObject = new GameObject();// (GameObject)GameObject.Instantiate(LoadAgent.AssetObject);
 
             configObject.transform.parent = rootGameObject.transform;
@@ -208,7 +210,7 @@ namespace SFramework
                 cameraBk = tmp.GetComponent<Camera>();
             tmp = configObject.transform.FindChildRecursively("BK");
             if (tmp != null)
-                bkTexture = tmp.GetComponent<UITexture>();
+                bkTexture = tmp.GetComponent<RawImage>();
 
             if (camera == null)
             {
@@ -230,7 +232,7 @@ namespace SFramework
             }
 
             camera.clearFlags = CameraClearFlags.Color;
-            camera.backgroundColor = new Color(0, 0, 0, 0);
+            camera.backgroundColor = new  Color(0, 0, 0, 0);
             camera.cullingMask = 1 << layer;
             camera.aspect = renderTextureWidth / (float)renderTextureHeight;
             camera.targetTexture = targetTexture;
@@ -262,7 +264,7 @@ namespace SFramework
         //>-----------------------------------------------------------------------------
 
         /// <summary>
-        /// Ïú»Ù³¡¾°
+        /// é”€æ¯åœºæ™¯
         /// </summary>
         public virtual void Destory()
         {
@@ -294,7 +296,7 @@ namespace SFramework
         private Action loadComplateAction = null;
 
         /// <summary>
-        /// ÉèÖÃäÖÈ¾µÄÄ£ĞÍ
+        /// è®¾ç½®æ¸²æŸ“çš„æ¨¡å‹
         /// </summary>
         /// <param name="model"></param>
         public virtual void SetModel(RTTModel newModel, Action loadComplate = null)
@@ -306,7 +308,7 @@ namespace SFramework
 
                 if (renderModel == newModel)
                 {
-                    // ¼ì²éÒ»ÏÂ¶¯×÷
+                    // æ£€æŸ¥ä¸€ä¸‹åŠ¨ä½œ
                     if (!renderModel.IsPlayingAnimation())
                     {
                         renderModel.PlayModelAction(PlayerAnimName.Stand, WrapMode.Loop);
@@ -383,10 +385,10 @@ namespace SFramework
         protected float cameraHeight = 999f;
         protected float cameraDistance = 999f;
         /// <summary>
-        /// ÉèÖÃÏà»ú²ÎÊı
+        /// è®¾ç½®ç›¸æœºå‚æ•°
         /// </summary>
-        /// <param name="height">Ïà»ú¸ß¶È</param>
-        /// <param name="distance">Ïà»ú¾àÀë</param>
+        /// <param name="height">ç›¸æœºé«˜åº¦</param>
+        /// <param name="distance">ç›¸æœºè·ç¦»</param>
         public virtual void SetCameraParm(float height, float distance)
         {
             cameraHeight = height;
@@ -425,33 +427,33 @@ namespace SFramework
         }
 
         /// <summary>
-        /// ÉèÖÃUI²¼¾Ö£¬ ½«Ä£ĞÍ»­µ½±³¾°Í¼µÄÄ³¸öÇøÓòÉÏ
+        /// è®¾ç½®UIå¸ƒå±€ï¼Œ å°†æ¨¡å‹ç”»åˆ°èƒŒæ™¯å›¾çš„æŸä¸ªåŒºåŸŸä¸Š
         /// </summary>
-        /// <param name="uiModelSize">Ä£ĞÍ»­µ½uiÉÏµÄ´óĞ¡£¬vector4(left, bottom, width, height)</param>
-        /// <param name="bkSize">±³¾°¿òµÄ´óĞ¡</param>
-        /// <param name="texture">±³¾°Í¼Æ¬</param>
-        /// <param name="rtScale">RenderTextureËõ·Å</param>
+        /// <param name="uiModelSize">æ¨¡å‹ç”»åˆ°uiä¸Šçš„å¤§å°ï¼Œvector4(left, bottom, width, height)</param>
+        /// <param name="bkSize">èƒŒæ™¯æ¡†çš„å¤§å°</param>
+        /// <param name="texture">èƒŒæ™¯å›¾ç‰‡</param>
+        /// <param name="rtScale">RenderTextureç¼©æ”¾</param>
         public void SetCameraParm(float height, float distance, Vector4 uiModelSize, Vector2 bkSize, Texture texture, float rtScale = 1)
         {
             rtScale = rtScale <= 0 ? 1 : rtScale;
             renderTextureWidth = (int)(bkSize.x * rtScale);
             renderTextureHeight = (int)(bkSize.y * rtScale);
 
-            //ÉèÖÃmodelCamera
+            //è®¾ç½®modelCamera
             SetCameraParm(height, distance);
             if (cameraBk == null || camera == null)
                 return;
 
-            //ÉèÖÃmodelCamera viewport
+            //è®¾ç½®modelCamera viewport
             camera.rect = new Rect(uiModelSize.x / bkSize.x, uiModelSize.y / bkSize.y, uiModelSize.z / bkSize.x, uiModelSize.w / bkSize.y);
 
 
-            //ÉèÖÃBKCamera
+            //è®¾ç½®BKCamera
             if (bkTexture != null)
             {
-                bkTexture.mainTexture = texture;
-                bkTexture.width = (int)bkSize.x;
-                bkTexture.height = (int)bkSize.y;
+                bkTexture.texture = texture;
+                bkTexture.texture.width = (int)bkSize.x;
+                bkTexture.texture.height = (int)bkSize.y;
             }
 
             cameraBk.enabled = true;
@@ -478,29 +480,33 @@ namespace SFramework
         }
 
         /// <summary>
-        /// ½ØÆÁ ×÷Îª±³¾°
+        /// æˆªå± ä½œä¸ºèƒŒæ™¯
         /// </summary>
         public void SetCaptureScreen(Camera screenCamera, Rect rect)
         {
-            // ´´½¨Ò»¸öRenderTexture¶ÔÏó
+            // åˆ›å»ºä¸€ä¸ªRenderTextureå¯¹è±¡
             RenderTexture rt = new RenderTexture(Screen.width, Screen.height, 24);
             screenCamera.targetTexture = rt;
             screenCamera.Render();
 
             RenderTexture.active = rt;
 
-            //ĞèÒªÕıÈ·ÉèÖÃºÃÍ¼Æ¬±£´æ¸ñÊ½
+            //éœ€è¦æ­£ç¡®è®¾ç½®å¥½å›¾ç‰‡ä¿å­˜æ ¼å¼
             Texture2D texture2D = new Texture2D((int)rect.width, (int)rect.height, TextureFormat.RGB24, false);
-            //°´ÕÕÉè¶¨ÇøÓò¶ÁÈ¡ÏñËØ£»×¢ÒâÊÇÒÔ×óÏÂ½ÇÎªÔ­µã¶ÁÈ¡
+            //æŒ‰ç…§è®¾å®šåŒºåŸŸè¯»å–åƒç´ ï¼›æ³¨æ„æ˜¯ä»¥å·¦ä¸‹è§’ä¸ºåŸç‚¹è¯»å–
             texture2D.ReadPixels(rect, 0, 0, false);
             texture2D.Apply();
 
-            //ÉèÖÃBKCamera
+            //è®¾ç½®BKCamera
             if (bkTexture != null)
             {
-                bkTexture.mainTexture = texture2D;
-                bkTexture.width = (int)rect.width;
-                bkTexture.height = (int)rect.height;
+                //bkTexture.mainTexture = texture2D;
+                //bkTexture.width = (int)rect.width;
+                //bkTexture.height = (int)rect.height;
+
+                bkTexture.texture = texture2D;
+                bkTexture.texture.width = (int)rect.width;
+                bkTexture.texture.height = (int)rect.height;
             }
             cameraBk.enabled = true;
             cameraBk.projectionMatrix = Matrix4x4.Ortho(-rect.width / 200, rect.width / 200, -rect.height / 200, rect.height / 200, -10, 10000);

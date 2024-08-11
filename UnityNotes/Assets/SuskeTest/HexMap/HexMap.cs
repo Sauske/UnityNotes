@@ -1,5 +1,4 @@
-using BestHTTP.SecureProtocol.Org.BouncyCastle.Utilities.Encoders;
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -62,11 +61,11 @@ namespace SuskeTest
 
     public class HexMap
     {
-        public HexCell startCell; // ÆğÊ¼µ¥Ôª¸ñ
-        public HexCell goalCell; // Ä¿±êµ¥Ôª¸ñ
+        public HexCell startCell; // èµ·å§‹å•å…ƒæ ¼
+        public HexCell goalCell; // ç›®æ ‡å•å…ƒæ ¼
 
-        public List<HexCell> openList; // ¿ª·ÅÁĞ±í
-        public List<HexCell> closedList; // ·â±ÕÁĞ±í
+        public List<HexCell> openList; // å¼€æ”¾åˆ—è¡¨
+        public List<HexCell> closedList; // å°é—­åˆ—è¡¨
 
         public List<HexCell> FindPath(HexCell start, HexCell goal)
         {
@@ -84,9 +83,9 @@ namespace SuskeTest
 
                 if (currentCell == goal)
                 {
-                    // ÕÒµ½Â·¾¶
+                    // æ‰¾åˆ°è·¯å¾„
                     List<HexCell> path = RetracePath(start, goal);
-                    // ÔÚÕâÀï´¦ÀíÂ·¾¶
+                    // åœ¨è¿™é‡Œå¤„ç†è·¯å¾„
                     return path;
                 }
 
@@ -111,7 +110,7 @@ namespace SuskeTest
                     }
                 }
             }
-            // Î´ÕÒµ½Â·¾¶
+            // æœªæ‰¾åˆ°è·¯å¾„
             return null;           
         }
 
@@ -131,7 +130,7 @@ namespace SuskeTest
         }
 
         /// <summary>
-        /// ×îÉÙ³É±¾µã¼¯
+        /// æœ€å°‘æˆæœ¬ç‚¹é›†
         /// </summary>
         /// <param name="cellList"></param>
         /// <returns></returns>
@@ -151,15 +150,15 @@ namespace SuskeTest
         }
 
         /// <summary>
-        /// ¾àÀë
+        /// è·ç¦»
         /// </summary>
         /// <param name="cellA"></param>
         /// <param name="cellB"></param>
         /// <returns></returns>
         private int GetDistance(HexCell cellA, HexCell cellB)
         {
-            // ¼ÆËãÁ½¸öµ¥Ôª¸ñÖ®¼äµÄ¾àÀë
-            // ÕâÀï¿ÉÒÔÊ¹ÓÃ²»Í¬µÄ¾àÀë¼ÆËã·½·¨£¬ÈçÖ±Ïß¾àÀë»òÂü¹ş¶Ù¾àÀë
+            // è®¡ç®—ä¸¤ä¸ªå•å…ƒæ ¼ä¹‹é—´çš„è·ç¦»
+            // è¿™é‡Œå¯ä»¥ä½¿ç”¨ä¸åŒçš„è·ç¦»è®¡ç®—æ–¹æ³•ï¼Œå¦‚ç›´çº¿è·ç¦»æˆ–æ›¼å“ˆé¡¿è·ç¦»
             return 1;
         }
     }
