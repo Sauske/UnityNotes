@@ -1,0 +1,7 @@
+1、下载地址：https://github.com/Perfare/AssetStudio/releases
+2、Github地址：https://github.com/Perfare/AssetStudio/tree/master
+3、手游游戏资源提取 (破解、AssetStudio、VGMToolbox、disunity、Il2CppDumper、 .NET Reflector) ：
+https://www.cnblogs.com/gamedaybyday/p/13559763.html
+
+AssetStudio详解：https://blog.csdn.net/qq_21567385/article/details/107015800
+AssetStudio构建+解析：https://blog.csdn.net/Jaihk662/article/details/118193258

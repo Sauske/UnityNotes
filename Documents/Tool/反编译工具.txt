@@ -1,0 +1,5 @@
+1、IL2CppDumper：从Unity il2cpp的二进制文件中获取类型、方法、字段等：
+https://blog.csdn.net/linxinfa/article/details/116572369
+2、IL2CppDumper地址：https://github.com/Perfare/Il2CppDumper
+
+Win查看C#源码工具：ILSpy
