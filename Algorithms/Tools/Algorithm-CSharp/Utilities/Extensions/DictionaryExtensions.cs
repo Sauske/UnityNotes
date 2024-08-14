@@ -15,9 +15,7 @@ public static class DictionaryExtensions
     /// <exception cref="ArgumentException">
     ///     A key from the <paramref name="enumerable"/> already exists in <paramref name="keys"/>.
     /// </exception>
-    public static void AddMany<TKey, TValue>(
-        this Dictionary<TKey, TValue> keys,
-        IEnumerable<(TKey, TValue)> enumerable) where TKey : notnull
+    public static void AddMany<TKey, TValue>(this Dictionary<TKey, TValue> keys,IEnumerable<(TKey, TValue)> enumerable) where TKey : notnull
     {
         foreach (var (key, value) in enumerable)
         {

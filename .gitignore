@@ -12,6 +12,13 @@
 /Algorithms/obj
 /Algorithms/.vs
 
+/*************    EditorWindow   ******************/
+/EditorWindow/Library
+/EditorWindow/Temp
+/EditorWindow/Logs
+/EditorWindow/obj
+/EditorWindow/.vs
+
 /*************    Effects   ******************/
 /Effects/Library
 /Effects/Temp
