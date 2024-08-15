@@ -4,135 +4,138 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class FourQueen : MonoBehaviour
+namespace EightQueen
 {
-    private const int QUEEN_COUNT = 4;
-
-    public GridLayoutGroup grid;
-    public TextMeshProUGUI txtCurPage;
-
-    public Button mBtnPrev;
-    public Button mBtnNext;
-
-
-    private Button[,] GridBtns = new Button[QUEEN_COUNT, QUEEN_COUNT];
-    private int curShowPage = 0;
-
-    private List<int[]> solutions = new List<int[]>();
-
-    private void Awake()
+    public class FourQueen : MonoBehaviour
     {
-        mBtnPrev.onClick.AddListener(OnClickPrevPage);
-        mBtnNext.onClick.AddListener(OnClickNextPage);
-    }
+        private const int QUEEN_COUNT = 4;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        InitGridButtons();
+        public GridLayoutGroup grid;
+        public TextMeshProUGUI txtCurPage;
 
-        GetSolutions(QUEEN_COUNT);
+        public Button mBtnPrev;
+        public Button mBtnNext;
 
-        ShowSolutionByIndex(curShowPage);
-    }
 
-    void InitGridButtons()
-    {
-        Button[] btns = grid.GetComponentsInChildren<Button>();
+        private Button[,] GridBtns = new Button[QUEEN_COUNT, QUEEN_COUNT];
+        private int curShowPage = 0;
 
-        for(int idx = 0; idx < btns.Length;idx++)
+        private List<int[]> solutions = new List<int[]>();
+
+        private void Awake()
         {
-            int x = idx / QUEEN_COUNT;
-            int y = idx % QUEEN_COUNT;
-
-            GridBtns[x, y] = btns[idx];
-        }
-    }
-
-    List<int[]> GetSolutions(int count)
-    {
-        solutions = new List<int[]>();
-
-        List<int> queenList = new List<int>();
-        for (int idx = 0; idx < count; idx++)
-        {
-            queenList.Add(0);
+            mBtnPrev.onClick.AddListener(OnClickPrevPage);
+            mBtnNext.onClick.AddListener(OnClickNextPage);
         }
 
-        PutQueen(count, queenList, 0);
-
-        return solutions;
-    }
-
-    void PutQueen(int queenCount,List<int> queenList,int nextY)
-    {
-        for(queenList[nextY] = 0;queenList[nextY] < queenCount;queenList[nextY]++)
+        // Start is called before the first frame update
+        void Start()
         {
-            if(!CheckConflict(queenList,nextY))
+            InitGridButtons();
+
+            GetSolutions(QUEEN_COUNT);
+
+            ShowSolutionByIndex(curShowPage);
+        }
+
+        void InitGridButtons()
+        {
+            Button[] btns = grid.GetComponentsInChildren<Button>();
+
+            for (int idx = 0; idx < btns.Length; idx++)
             {
-                if(nextY + 1 < QUEEN_COUNT)
+                int x = idx / QUEEN_COUNT;
+                int y = idx % QUEEN_COUNT;
+
+                GridBtns[x, y] = btns[idx];
+            }
+        }
+
+        List<int[]> GetSolutions(int count)
+        {
+            solutions = new List<int[]>();
+
+            List<int> queenList = new List<int>();
+            for (int idx = 0; idx < count; idx++)
+            {
+                queenList.Add(0);
+            }
+
+            PutQueen(count, queenList, 0);
+
+            return solutions;
+        }
+
+        void PutQueen(int queenCount, List<int> queenList, int nextY)
+        {
+            for (queenList[nextY] = 0; queenList[nextY] < queenCount; queenList[nextY]++)
+            {
+                if (!CheckConflict(queenList, nextY))
                 {
-                    PutQueen(queenCount, queenList, nextY + 1);
-                }
-                else
-                {
-                    solutions.Add(queenList.ToArray());
+                    if (nextY + 1 < QUEEN_COUNT)
+                    {
+                        PutQueen(queenCount, queenList, nextY + 1);
+                    }
+                    else
+                    {
+                        solutions.Add(queenList.ToArray());
+                    }
                 }
             }
         }
-    }
 
-    bool CheckConflict(List<int> queenList,int nextY)
-    {
-        for(int positionY = 0; positionY < nextY;positionY++)
+        bool CheckConflict(List<int> queenList, int nextY)
         {
-            int x = Mathf.Abs(queenList[positionY] - queenList[nextY]);
-            int y = Mathf.Abs(positionY - nextY);
-            if (x == y || queenList[positionY] == queenList[nextY])
+            for (int positionY = 0; positionY < nextY; positionY++)
             {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    void ShowSolutionByIndex(int page)
-    {
-        if (page < 0 || page > solutions.Count) return;
-
-        txtCurPage.text = string.Format("Current Page Is : {0}", page);
-
-        int[] solution = solutions[page];
-        int queenIndex = 0;
-
-        for(int i = 0; i < QUEEN_COUNT;i++)
-        {
-            for(int idx = 0; idx < QUEEN_COUNT; idx++)
-            {
-                if (GridBtns[i, idx] == null) continue;
-
-                if(i== queenIndex && idx == solution[queenIndex])
+                int x = Mathf.Abs(queenList[positionY] - queenList[nextY]);
+                int y = Mathf.Abs(positionY - nextY);
+                if (x == y || queenList[positionY] == queenList[nextY])
                 {
-                    GridBtns[i, idx].GetComponentInChildren<TextMeshProUGUI>().text = "x";
-                }
-                else
-                {
-                    GridBtns[i, idx].GetComponentInChildren<TextMeshProUGUI>().text = "";
+                    return true;
                 }
             }
-            queenIndex++;
+            return false;
         }
-    }
 
-    private void OnClickPrevPage()
-    {
-        curShowPage = Mathf.Max(0, --curShowPage);
-        ShowSolutionByIndex(curShowPage);
-    }
+        void ShowSolutionByIndex(int page)
+        {
+            if (page < 0 || page > solutions.Count) return;
 
-    public void OnClickNextPage()
-    {
-        curShowPage = Mathf.Min(solutions.Count - 1, ++curShowPage);
-        ShowSolutionByIndex(curShowPage);
+            txtCurPage.text = string.Format("Current Page Is : {0}", page);
+
+            int[] solution = solutions[page];
+            int queenIndex = 0;
+
+            for (int i = 0; i < QUEEN_COUNT; i++)
+            {
+                for (int idx = 0; idx < QUEEN_COUNT; idx++)
+                {
+                    if (GridBtns[i, idx] == null) continue;
+
+                    if (i == queenIndex && idx == solution[queenIndex])
+                    {
+                        GridBtns[i, idx].GetComponentInChildren<TextMeshProUGUI>().text = "x";
+                    }
+                    else
+                    {
+                        GridBtns[i, idx].GetComponentInChildren<TextMeshProUGUI>().text = "";
+                    }
+                }
+                queenIndex++;
+            }
+        }
+
+        private void OnClickPrevPage()
+        {
+            curShowPage = Mathf.Max(0, --curShowPage);
+            ShowSolutionByIndex(curShowPage);
+        }
+
+        public void OnClickNextPage()
+        {
+            curShowPage = Mathf.Min(solutions.Count - 1, ++curShowPage);
+            ShowSolutionByIndex(curShowPage);
+        }
     }
 }
