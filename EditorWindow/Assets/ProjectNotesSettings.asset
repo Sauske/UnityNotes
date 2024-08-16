@@ -26,6 +26,4 @@ MonoBehaviour:
       system to share the information within your team.\r\n\u53EF\u4EE5\u5728\u8FD9\u91CC\u8F93\u5165\u4E00\u4E9B\u4FE1\u606F\uFF0C\u7136\u540E\u5C06\u6B64\u8D44\u4EA7\u4E0A\u4F20\u5230\u7248\u672C\u63A7\u5236\u7CFB\u7EDF\uFF0C\u6765\u5728\u56E2\u961F\u4E2D\u5206\u4EAB\u4FE1\u606F\u3002\r\n\r\nThe
       information content supports <color=green>rich text</color>, see reference:\r\n\u4FE1\u606F\u5185\u5BB9\u652F\u6301<color=green>\u5BCC\u6587\u672C</color>\uFF0C\u53C2\u8003\uFF1A\r\n\r\n   
       <i>https://docs.unity3d.com/Manual/UIE-supported-tags.html</i>"
-    contentHistory:
-    - timestamp: 638523554912390682
-      content: "This is a <color=blue>historical version</color> sample.\r\n\u8FD9\u662F\u4E00\u4E2A<color=blue>\u5386\u53F2\u7248\u672C</color>\u793A\u4F8B\u3002"
+    contentHistory: []
