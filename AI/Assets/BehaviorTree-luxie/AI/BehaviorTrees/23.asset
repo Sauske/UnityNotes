@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1227330239, guid: 9fa2ecd1ff2ad394281dd3bf72c5b76e, type: 3}
+  m_Name: 23
+  m_EditorClassIdentifier: 
+  _dataSerializer:
+    _serializedData: <scriptableobject version="1.1" type="RAIN.BehaviorTrees.BTAsset"><fields><field
+      value="&lt;behaviortree version=&quot;1.1&quot; repeatuntil=&quot;&quot; name=&quot;23&quot;
+      debugbreak=&quot;False&quot;&gt;&lt;sequencer usepriorities=&quot;False&quot;
+      repeatuntil=&quot;&quot; name=&quot;root&quot; debugbreak=&quot;False&quot;&gt;&lt;action
+      repeatuntil=&quot;&quot; priority=&quot;&quot; parametervalues=&quot;&quot;
+      parameters=&quot;&quot; namespace=&quot;(global)&quot; name=&quot;action&quot;
+      debugbreak=&quot;False&quot; classname=&quot;&quot; /&gt;&lt;animate repeatuntil=&quot;&quot;
+      priority=&quot;&quot; name=&quot;animate&quot; debugbreak=&quot;False&quot;
+      animationstate=&quot;&quot; /&gt;&lt;animate repeatuntil=&quot;&quot; priority=&quot;&quot;
+      name=&quot;animate&quot; debugbreak=&quot;False&quot; animationstate=&quot;&quot;
+      /&gt;&lt;parallel tiebreaker=&quot;fail&quot; succeed=&quot;all&quot; repeatuntil=&quot;&quot;
+      priority=&quot;&quot; name=&quot;parallel&quot; fail=&quot;any&quot; debugbreak=&quot;False&quot;
+      /&gt;&lt;priority repeatuntil=&quot;&quot; refreshrate=&quot;0.1&quot; priority=&quot;&quot;
+      name=&quot;priority&quot; debugbreak=&quot;False&quot; /&gt;&lt;constraint
+      repeatuntil=&quot;&quot; priority=&quot;&quot; name=&quot;constraint&quot;
+      debugbreak=&quot;False&quot; constraint=&quot;&quot; /&gt;&lt;iterator repeatuntil=&quot;&quot;
+      priority=&quot;&quot; name=&quot;iterator&quot; debugbreak=&quot;False&quot;
+      count=&quot;0&quot; /&gt;&lt;random repeatuntil=&quot;&quot; priority=&quot;&quot;
+      name=&quot;random&quot; debugbreak=&quot;False&quot; /&gt;&lt;timer waitforsec=&quot;0&quot;
+      returnvalue=&quot;success&quot; priority=&quot;&quot; name=&quot;timer&quot;
+      debugbreak=&quot;False&quot; /&gt;&lt;waypointpath waypointsetvariable=&quot;&quot;
+      waypointactiontype=&quot;path&quot; traversetype=&quot;pingpong&quot; traverseorder=&quot;forward&quot;
+      repeatuntil=&quot;&quot; priority=&quot;&quot; pathtargetvariable=&quot;&quot;
+      name=&quot;waypointpath&quot; movetargetvariable=&quot;&quot; debugbreak=&quot;False&quot;
+      /&gt;&lt;/sequencer&gt;&lt;sequencer usepriorities=&quot;False&quot; repeatuntil=&quot;&quot;
+      name=&quot;sequencer&quot; debugbreak=&quot;False&quot; /&gt;&lt;random repeatuntil=&quot;&quot;
+      name=&quot;random&quot; debugbreak=&quot;False&quot; /&gt;&lt;constraint repeatuntil=&quot;&quot;
+      name=&quot;constraint&quot; debugbreak=&quot;False&quot; constraint=&quot;&quot;
+      /&gt;&lt;/behaviortree&gt;" type="System.String" id="treeData" /><field type="System.Array"
+      id="treeBindings" elementtype="System.String" /></fields><references /></scriptableobject>
+    _serializedGameObjects: []
+    _serializedCustomData: []
