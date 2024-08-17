@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace UMI
 {
-    [System.Serializable]
     public class TriggerArea
     {        
         public int Shape;
@@ -31,16 +30,16 @@ namespace UMI
 
     public struct ClientV3
     {
-        public float X;
-        public float Y;
-        public float Z;
+        public int X;
+        public int Y;
+        public int Z;
 
     }
 
     public class LevelCfg
     {
-        public TriggerAreaGroup AreaList { get; set; }
-        public ActionPointGroup PointList { get; set; }
+        public TriggerAreaGroup AreaList;
+        public ActionPointGroup PointList;
 
         public LevelCfg()
         {
@@ -51,7 +50,7 @@ namespace UMI
 
     public class ActionPointGroup
     {
-        public List<ActionPoint> List { get; set; }
+        public List<ActionPoint> List;
 
         public ActionPointGroup()
         {
@@ -61,13 +60,13 @@ namespace UMI
 
     public class ActionPoint
     {
-        public ClientV3 Pos { get; set; }
-        public ClientV3 Forward { get; set; }
+        public ClientV3 Pos;
+        public ClientV3 Forward;
     }
 
     public class TriggerAreaGroup
     {
-        public List<TriggerArea> List { get; set; }
+        public List<TriggerArea> List;
 
         public TriggerAreaGroup()
         {

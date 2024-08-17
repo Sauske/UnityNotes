@@ -4,6 +4,7 @@ using System.IO;
 using System;
 using System.Collections;
 using LitJson;
+using System.Text.RegularExpressions;
 //using Protocol;
 
 namespace UMI
@@ -158,7 +159,9 @@ namespace UMI
                 levelCfg.AreaList = triggerAreaGroup;
             }
 
-            var bytes = JsonMapper.ToJson(levelCfg);// levelCfg.ToByteArray();
+            string bytes = JsonMapper.ToJson(levelCfg);// levelCfg.ToByteArray();
+            bytes = Regex.Unescape(bytes);
+
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
