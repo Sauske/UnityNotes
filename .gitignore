@@ -40,6 +40,13 @@
 /FogOfWar/obj
 /FogOfWar/.vs
 
+/*************    Lockstep   ******************/
+/Lockstep/Library
+/Lockstep/Temp
+/Lockstep/Logs
+/Lockstep/obj
+/Lockstep/.vs
+
 /*************    NavmeshComponents   ******************/
 /NavmeshComponents/Library
 /NavmeshComponents/Temp
