@@ -1,0 +1,160 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "G:\\Github\\UnityNotes\\EditorWindow\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{19492E80-F5CB-6DD3-601E-1AAD245C5BE7}|Assembly-CSharp.csproj|g:\\github\\unitynotes\\editorwindow\\assets\\thridparty\\litjson\\jsonmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{19492E80-F5CB-6DD3-601E-1AAD245C5BE7}|Assembly-CSharp.csproj|solutionrelative:assets\\thridparty\\litjson\\jsonmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83A37A5B-0E30-E48A-574E-DC262CB8D34B}|Assembly-CSharp-Editor.csproj|g:\\github\\unitynotes\\editorwindow\\assets\\tool\\leveltool\\editor\\levelconfigutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83A37A5B-0E30-E48A-574E-DC262CB8D34B}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\tool\\leveltool\\editor\\levelconfigutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83A37A5B-0E30-E48A-574E-DC262CB8D34B}|Assembly-CSharp-Editor.csproj|G:\\Github\\UnityNotes\\EditorWindow\\assets\\tool\\leveltool\\editor\\levelconfigwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83A37A5B-0E30-E48A-574E-DC262CB8D34B}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\tool\\leveltool\\editor\\levelconfigwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{83A37A5B-0E30-E48A-574E-DC262CB8D34B}|Assembly-CSharp-Editor.csproj|g:\\github\\unitynotes\\editorwindow\\assets\\tool\\leveltool\\editor\\toolkit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{83A37A5B-0E30-E48A-574E-DC262CB8D34B}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\tool\\leveltool\\editor\\toolkit.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19492E80-F5CB-6DD3-601E-1AAD245C5BE7}|Assembly-CSharp.csproj|g:\\github\\unitynotes\\editorwindow\\assets\\tool\\leveltool\\scripts\\triggerarea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{19492E80-F5CB-6DD3-601E-1AAD245C5BE7}|Assembly-CSharp.csproj|solutionrelative:assets\\tool\\leveltool\\scripts\\triggerarea.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19492E80-F5CB-6DD3-601E-1AAD245C5BE7}|Assembly-CSharp.csproj|g:\\github\\unitynotes\\editorwindow\\assets\\tool\\leveltool\\scripts\\vector3exts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{19492E80-F5CB-6DD3-601E-1AAD245C5BE7}|Assembly-CSharp.csproj|solutionrelative:assets\\tool\\leveltool\\scripts\\vector3exts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19492E80-F5CB-6DD3-601E-1AAD245C5BE7}|Assembly-CSharp.csproj|g:\\github\\unitynotes\\editorwindow\\assets\\tool\\leveltool\\scripts\\trigger\\triggerarearuntime.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{19492E80-F5CB-6DD3-601E-1AAD245C5BE7}|Assembly-CSharp.csproj|solutionrelative:assets\\tool\\leveltool\\scripts\\trigger\\triggerarearuntime.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{19492E80-F5CB-6DD3-601E-1AAD245C5BE7}|Assembly-CSharp.csproj|g:\\github\\unitynotes\\editorwindow\\assets\\tool\\leveltool\\scripts\\clientlevel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{19492E80-F5CB-6DD3-601E-1AAD245C5BE7}|Assembly-CSharp.csproj|solutionrelative:assets\\tool\\leveltool\\scripts\\clientlevel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 246,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "JsonMapper.cs",
+              "DocumentMoniker": "G:\\Github\\UnityNotes\\EditorWindow\\Assets\\ThridParty\\LitJson\\JsonMapper.cs",
+              "RelativeDocumentMoniker": "Assets\\ThridParty\\LitJson\\JsonMapper.cs",
+              "ToolTip": "G:\\Github\\UnityNotes\\EditorWindow\\Assets\\ThridParty\\LitJson\\JsonMapper.cs",
+              "RelativeToolTip": "Assets\\ThridParty\\LitJson\\JsonMapper.cs",
+              "ViewState": "AQIAANECAAAAAAAAAAAlwNkCAABNAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-16T09:49:43.898Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TriggerArea.cs",
+              "DocumentMoniker": "G:\\Github\\UnityNotes\\EditorWindow\\Assets\\Tool\\LevelTool\\Scripts\\TriggerArea.cs",
+              "RelativeDocumentMoniker": "Assets\\Tool\\LevelTool\\Scripts\\TriggerArea.cs",
+              "ToolTip": "G:\\Github\\UnityNotes\\EditorWindow\\Assets\\Tool\\LevelTool\\Scripts\\TriggerArea.cs",
+              "RelativeToolTip": "Assets\\Tool\\LevelTool\\Scripts\\TriggerArea.cs",
+              "ViewState": "AQIAADYAAAAAAAAAAAAYwDoAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-16T09:40:12.499Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ToolKit.cs",
+              "DocumentMoniker": "G:\\Github\\UnityNotes\\EditorWindow\\Assets\\Tool\\LevelTool\\Editor\\ToolKit.cs",
+              "RelativeDocumentMoniker": "Assets\\Tool\\LevelTool\\Editor\\ToolKit.cs",
+              "ToolTip": "G:\\Github\\UnityNotes\\EditorWindow\\Assets\\Tool\\LevelTool\\Editor\\ToolKit.cs",
+              "RelativeToolTip": "Assets\\Tool\\LevelTool\\Editor\\ToolKit.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAxwBMAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-16T09:35:44.843Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TriggerAreaRuntime.cs",
+              "DocumentMoniker": "G:\\Github\\UnityNotes\\EditorWindow\\Assets\\Tool\\LevelTool\\Scripts\\Trigger\\TriggerAreaRuntime.cs",
+              "RelativeDocumentMoniker": "Assets\\Tool\\LevelTool\\Scripts\\Trigger\\TriggerAreaRuntime.cs",
+              "ToolTip": "G:\\Github\\UnityNotes\\EditorWindow\\Assets\\Tool\\LevelTool\\Scripts\\Trigger\\TriggerAreaRuntime.cs",
+              "RelativeToolTip": "Assets\\Tool\\LevelTool\\Scripts\\Trigger\\TriggerAreaRuntime.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-16T09:19:22.411Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ClientLevel.cs",
+              "DocumentMoniker": "G:\\Github\\UnityNotes\\EditorWindow\\Assets\\Tool\\LevelTool\\Scripts\\ClientLevel.cs",
+              "RelativeDocumentMoniker": "Assets\\Tool\\LevelTool\\Scripts\\ClientLevel.cs",
+              "ToolTip": "G:\\Github\\UnityNotes\\EditorWindow\\Assets\\Tool\\LevelTool\\Scripts\\ClientLevel.cs",
+              "RelativeToolTip": "Assets\\Tool\\LevelTool\\Scripts\\ClientLevel.cs",
+              "ViewState": "AQIAAF8JAAAAAAAAAAAAwGUJAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-16T09:19:03.135Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Vector3Exts.cs",
+              "DocumentMoniker": "G:\\Github\\UnityNotes\\EditorWindow\\Assets\\Tool\\LevelTool\\Scripts\\Vector3Exts.cs",
+              "RelativeDocumentMoniker": "Assets\\Tool\\LevelTool\\Scripts\\Vector3Exts.cs",
+              "ToolTip": "G:\\Github\\UnityNotes\\EditorWindow\\Assets\\Tool\\LevelTool\\Scripts\\Vector3Exts.cs",
+              "RelativeToolTip": "Assets\\Tool\\LevelTool\\Scripts\\Vector3Exts.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA8AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-16T09:17:54.025Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LevelConfigUtil.cs",
+              "DocumentMoniker": "G:\\Github\\UnityNotes\\EditorWindow\\Assets\\Tool\\LevelTool\\Editor\\LevelConfigUtil.cs",
+              "RelativeDocumentMoniker": "Assets\\Tool\\LevelTool\\Editor\\LevelConfigUtil.cs",
+              "ToolTip": "G:\\Github\\UnityNotes\\EditorWindow\\Assets\\Tool\\LevelTool\\Editor\\LevelConfigUtil.cs",
+              "RelativeToolTip": "Assets\\Tool\\LevelTool\\Editor\\LevelConfigUtil.cs",
+              "ViewState": "AQIAAJAAAAAAAAAAAAAAAKAAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-16T09:06:29.752Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LevelConfigWindow.cs",
+              "DocumentMoniker": "G:\\Github\\UnityNotes\\EditorWindow\\Assets\\Tool\\LevelTool\\Editor\\LevelConfigWindow.cs",
+              "RelativeDocumentMoniker": "Assets\\Tool\\LevelTool\\Editor\\LevelConfigWindow.cs",
+              "ToolTip": "G:\\Github\\UnityNotes\\EditorWindow\\Assets\\Tool\\LevelTool\\Editor\\LevelConfigWindow.cs",
+              "RelativeToolTip": "Assets\\Tool\\LevelTool\\Editor\\LevelConfigWindow.cs",
+              "ViewState": "AQIAAIIAAAAAAAAAAAAjwIUAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-16T08:58:55.961Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
