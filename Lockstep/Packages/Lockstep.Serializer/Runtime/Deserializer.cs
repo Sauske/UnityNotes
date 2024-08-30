@@ -5,242 +5,285 @@ using System.Collections.Generic;
 using System.Text;
 using Lockstep.Math;
 
-namespace Lockstep.Serialization {
+namespace Lockstep.Serialization
+{
     public delegate uint FuncReadSlot(uint vTblOffset, int idx);
 
-    public class Deserializer {
+    public class Deserializer
+    {
         protected byte[] _data;
         protected int _position;
         protected int _dataSize;
         private int _offset;
 
-        public byte[] RawData {
+        public byte[] RawData
+        {
             get { return _data; }
         }
 
-        public int RawDataSize {
+        public int RawDataSize
+        {
             get { return _dataSize; }
         }
 
-        public int UserDataOffset {
+        public int UserDataOffset
+        {
             get { return _offset; }
         }
 
-        public int UserDataSize {
+        public int UserDataSize
+        {
             get { return _dataSize - _offset; }
         }
 
-        public bool IsNull {
+        public bool IsNull
+        {
             get { return _data == null; }
         }
 
-        public int Position {
+        public int Position
+        {
             get { return _position; }
         }
 
-        public void SetPosition(int pos){
+        public void SetPosition(int pos)
+        {
             _position = pos;
         }
 
-        public bool SkipLen(long len){
+        public bool SkipLen(long len)
+        {
             var dst = _position + len;
-            if (dst > _dataSize) {
-                throw new Exception(
-                    $"Skip len is out of range _dataSize:{_dataSize} _position:{_position}  skipLen:{len}");
-                return false;
+            if (dst > _dataSize)
+            {
+                throw new Exception($"Skip len is out of range _dataSize:{_dataSize} _position:{_position}  skipLen:{len}");
             }
 
-            _position += (int) len;
+            _position += (int)len;
             return true;
         }
 
-        public bool EndOfData {
+        public bool EndOfData
+        {
             get { return _position == _dataSize; }
         }
 
-        public int AvailableBytes {
+        public int AvailableBytes
+        {
             get { return _dataSize - _position; }
         }
 
-        public bool IsEnd {
+        public bool IsEnd
+        {
             get { return _dataSize == _position; }
         }
 
-        public void SetSource(Serializer dataWriter){
+        public void SetSource(Serializer dataWriter)
+        {
             _data = dataWriter.Data;
             _position = 0;
             _offset = 0;
             _dataSize = dataWriter.Length;
         }
 
-        public void SetSource(byte[] source){
+        public void SetSource(byte[] source)
+        {
             _data = source;
             _position = 0;
             _offset = 0;
             _dataSize = source.Length;
         }
 
-        public void SetSource(byte[] source, int offset){
+        public void SetSource(byte[] source, int offset)
+        {
             _data = source;
             _position = offset;
             _offset = offset;
             _dataSize = source.Length;
         }
 
-        public void SetSource(byte[] source, int offset, int maxSize){
+        public void SetSource(byte[] source, int offset, int maxSize)
+        {
             _data = source;
             _position = offset;
             _offset = offset;
             _dataSize = maxSize;
         }
 
-        public Deserializer(){ }
+        public Deserializer() { }
 
-        public Deserializer(byte[] source){
+        public Deserializer(byte[] source)
+        {
             SetSource(source);
         }
 
-        public Deserializer(byte[] source, int offset){
+        public Deserializer(byte[] source, int offset)
+        {
             SetSource(source, offset);
         }
 
-        public Deserializer(byte[] source, int offset, int maxSize){
+        public Deserializer(byte[] source, int offset, int maxSize)
+        {
             SetSource(source, offset, maxSize);
         }
 
         #region GetMethods    
 
-        public bool SetSlotOffset(int vTblOffset, int slotSize, int idx){
-            int offset = (int) (vTblOffset + idx * slotSize);
+        public bool SetSlotOffset(int vTblOffset, int slotSize, int idx)
+        {
+            int offset = (int)(vTblOffset + idx * slotSize);
             int dataOffset = _data[offset];
-            if (slotSize == 4) {
-                dataOffset = (int) FastBitConverter.ToUInt32(_data, offset);
+            if (slotSize == 4)
+            {
+                dataOffset = (int)FastBitConverter.ToUInt32(_data, offset);
             }
-            else if (slotSize == 2) {
+            else if (slotSize == 2)
+            {
                 dataOffset = FastBitConverter.ToUInt16(_data, offset);
             }
             _position = dataOffset;
             return dataOffset != 0;
         }
 
-        public uint ReadSlotInt16(uint offset, int idx){
-            return FastBitConverter.ToUInt16(_data, (int) (offset + idx * 2));
+        public uint ReadSlotInt16(uint offset, int idx)
+        {
+            return FastBitConverter.ToUInt16(_data, (int)(offset + idx * 2));
         }
 
-        public uint ReadSlotInt32(uint offset, int idx){
-            return FastBitConverter.ToUInt32(_data, (int) (offset + idx * 2));
+        public uint ReadSlotInt32(uint offset, int idx)
+        {
+            return FastBitConverter.ToUInt32(_data, (int)(offset + idx * 2));
         }
 
-        public byte ReadByte(){
+        public byte ReadByte()
+        {
             byte res = _data[_position];
             _position += 1;
             return res;
         }
 
-        public sbyte ReadSByte(){
-            var b = (sbyte) _data[_position];
+        public sbyte ReadSByte()
+        {
+            var b = (sbyte)_data[_position];
             _position++;
             return b;
         }
 
-        public bool ReadBoolean(){
+        public bool ReadBoolean()
+        {
             bool res = _data[_position] > 0;
             _position += 1;
             return res;
         }
 
-        public char ReadChar(){
-            char result = (char) FastBitConverter.ToInt16(_data, _position);
+        public char ReadChar()
+        {
+            char result = (char)FastBitConverter.ToInt16(_data, _position);
             _position += 2;
             return result;
         }
 
-        public ushort ReadUInt16(){
+        public ushort ReadUInt16()
+        {
             ushort result = FastBitConverter.ToUInt16(_data, _position);
             _position += 2;
             return result;
         }
 
-        public short ReadInt16(){
+        public short ReadInt16()
+        {
             short result = FastBitConverter.ToInt16(_data, _position);
             _position += 2;
             return result;
         }
 
-        public long ReadInt64(){
+        public long ReadInt64()
+        {
             long result = FastBitConverter.ToInt64(_data, _position);
             _position += 8;
             return result;
         }
 
-        public ulong ReadUInt64(){
+        public ulong ReadUInt64()
+        {
             ulong result = FastBitConverter.ToUInt64(_data, _position);
             _position += 8;
             return result;
         }
 
-        public int ReadInt32(){
+        public int ReadInt32()
+        {
             int result = FastBitConverter.ToInt32(_data, _position);
             _position += 4;
             return result;
         }
 
-        public uint ReadUInt32(){
+        public uint ReadUInt32()
+        {
             uint result = FastBitConverter.ToUInt32(_data, _position);
             _position += 4;
             return result;
         }
 
-        public float ReadSingle(){
+        public float ReadSingle()
+        {
             float result = FastBitConverter.ToSingle(_data, _position);
             _position += 4;
             return result;
         }
 
-        public double ReadDouble(){
+        public double ReadDouble()
+        {
             double result = FastBitConverter.ToDouble(_data, _position);
             _position += 8;
             return result;
         }
 
-        public LFloat ReadLFloat(){
+        public LFloat ReadLFloat()
+        {
             var x = ReadInt64();
             return new LFloat(true, x);
         }
 
-        public LVector2 ReadLVector2(){
+        public LVector2 ReadLVector2()
+        {
             var x = ReadInt64();
             var y = ReadInt64();
             return new LVector2(true, x, y);
         }
 
-        public LVector3 ReadLVector3(){
+        public LVector3 ReadLVector3()
+        {
             var x = ReadInt64();
             var y = ReadInt64();
             var z = ReadInt64();
             return new LVector3(true, x, y, z);
         }
-        public LVector2Int ReadLVector2Int(){
+        public LVector2Int ReadLVector2Int()
+        {
             var x = ReadInt32();
             var y = ReadInt32();
-            return new LVector2Int( x, y);
+            return new LVector2Int(x, y);
         }
-        public LVector3Int ReadLVector3Int(){
+        public LVector3Int ReadLVector3Int()
+        {
             var x = ReadInt32();
             var y = ReadInt32();
             var z = ReadInt32();
-            return new LVector3Int( x, y, z);
+            return new LVector3Int(x, y, z);
         }
-        
-        public LQuaternion ReadLQuaternion(){
-            var x = new LFloat(true,ReadInt64());
-            var y = new LFloat(true,ReadInt64());
-            var z = new LFloat(true,ReadInt64());
-            var w = new LFloat(true,ReadInt64());
-            return new LQuaternion( x, y, z,w);
+
+        public LQuaternion ReadLQuaternion()
+        {
+            var x = new LFloat(true, ReadInt64());
+            var y = new LFloat(true, ReadInt64());
+            var z = new LFloat(true, ReadInt64());
+            var w = new LFloat(true, ReadInt64());
+            return new LQuaternion(x, y, z, w);
         }
-        
-        public T ReadRef<T>(ref T _) where T :class, ISerializable,new (){
+
+        public T ReadRef<T>(ref T _) where T : class, ISerializable, new()
+        {
             if (ReadBoolean())
                 return null;
             var val = new T();
@@ -248,14 +291,17 @@ namespace Lockstep.Serialization {
             return val;
         }
 
-        public string ReadString(int maxLength){
+        public string ReadString(int maxLength)
+        {
             int bytesCount = ReadInt32();
-            if (bytesCount <= 0 || bytesCount > maxLength * 2) {
+            if (bytesCount <= 0 || bytesCount > maxLength * 2)
+            {
                 return string.Empty;
             }
 
             int charCount = Encoding.UTF8.GetCharCount(_data, _position, bytesCount);
-            if (charCount > maxLength) {
+            if (charCount > maxLength)
+            {
                 return string.Empty;
             }
 
@@ -264,9 +310,11 @@ namespace Lockstep.Serialization {
             return result;
         }
 
-        public string ReadString(){
+        public string ReadString()
+        {
             int bytesCount = ReadInt32();
-            if (bytesCount <= 0) {
+            if (bytesCount <= 0)
+            {
                 return string.Empty;
             }
 
@@ -275,128 +323,158 @@ namespace Lockstep.Serialization {
             return result;
         }
 
-        public byte[] ReadArray(byte[] _){
+        public byte[] ReadArray(byte[] _)
+        {
             return ReadBytes();
         }
 
-        public short[] ReadArray(short[] _){
+        public short[] ReadArray(short[] _)
+        {
             return _ReadArray(ReadInt16);
         }
 
-        public ushort[] ReadArray(ushort[] _){
+        public ushort[] ReadArray(ushort[] _)
+        {
             return _ReadArray(ReadUInt16);
         }
 
-        public int[] ReadArray(int[] _){
+        public int[] ReadArray(int[] _)
+        {
             return _ReadArray(ReadInt32);
         }
 
-        public uint[] ReadArray(uint[] _){
+        public uint[] ReadArray(uint[] _)
+        {
             return _ReadArray(ReadUInt32);
         }
 
-        public long[] ReadArray(long[] _){
+        public long[] ReadArray(long[] _)
+        {
             return _ReadArray(ReadInt64);
         }
 
-        public ulong[] ReadArray(ulong[] _){
+        public ulong[] ReadArray(ulong[] _)
+        {
             return _ReadArray(ReadUInt64);
         }
 
-        public float[] ReadArray(float[] _){
+        public float[] ReadArray(float[] _)
+        {
             return _ReadArray(ReadSingle);
         }
 
-        public double[] ReadArray(double[] _){
+        public double[] ReadArray(double[] _)
+        {
             return _ReadArray(ReadDouble);
         }
 
-        public LFloat[] ReadArray(LFloat[] _){
+        public LFloat[] ReadArray(LFloat[] _)
+        {
             return _ReadArray(ReadLFloat);
         }
-        
-        public bool[] ReadArray(bool[] _){
+
+        public bool[] ReadArray(bool[] _)
+        {
             return _ReadArray(ReadBoolean);
         }
 
-        public string[] ReadArray(string[] _){
+        public string[] ReadArray(string[] _)
+        {
             return _ReadArray(ReadString);
         }
 
-        public List<short> ReadList(List<short> _){
+        public List<short> ReadList(List<short> _)
+        {
             return _ReadList(ReadInt16);
         }
 
-        public List<ushort> ReadList(List<ushort> _){
+        public List<ushort> ReadList(List<ushort> _)
+        {
             return _ReadList(ReadUInt16);
         }
 
-        public List<int> ReadList(List<int> _){
+        public List<int> ReadList(List<int> _)
+        {
             return _ReadList(ReadInt32);
         }
 
-        public List<uint> ReadList(List<uint> _){
+        public List<uint> ReadList(List<uint> _)
+        {
             return _ReadList(ReadUInt32);
         }
 
-        public List<long> ReadList(List<long> _){
+        public List<long> ReadList(List<long> _)
+        {
             return _ReadList(ReadInt64);
         }
 
-        public List<ulong> ReadList(List<ulong> _){
+        public List<ulong> ReadList(List<ulong> _)
+        {
             return _ReadList(ReadUInt64);
         }
 
-        public List<float> ReadList(List<float> _){
+        public List<float> ReadList(List<float> _)
+        {
             return _ReadList(ReadSingle);
         }
 
-        public List<double> ReadList(List<double> _){
+        public List<double> ReadList(List<double> _)
+        {
             return _ReadList(ReadDouble);
         }
 
-        public List<LFloat> ReadList(List<LFloat> _){
+        public List<LFloat> ReadList(List<LFloat> _)
+        {
             return _ReadList(ReadLFloat);
         }
-        
-        public List<bool> ReadList(List<bool> _){
+
+        public List<bool> ReadList(List<bool> _)
+        {
             return _ReadList(ReadBoolean);
         }
 
-        public List<string> ReadList(List<string> _){
+        public List<string> ReadList(List<string> _)
+        {
             return _ReadList(ReadString);
         }
 
-        private List<T> _ReadList<T>(Func<T> _func){
+        private List<T> _ReadList<T>(Func<T> _func)
+        {
             ushort size = FastBitConverter.ToUInt16(_data, _position);
             _position += 2;
             var arr = new List<T>(size);
-            for (int i = 0; i < size; i++) {
+            for (int i = 0; i < size; i++)
+            {
                 arr.Add(_func());
             }
             return arr;
         }
 
-        private T[] _ReadArray<T>(Func<T> _func){
+        private T[] _ReadArray<T>(Func<T> _func)
+        {
             ushort size = FastBitConverter.ToUInt16(_data, _position);
             _position += 2;
             var arr = new T[size];
-            for (int i = 0; i < size; i++) {
+            for (int i = 0; i < size; i++)
+            {
                 arr[i] = _func();
             }
 
             return arr;
         }
 
-        public T[] ReadArray<T>(T[] _) where T : ISerializable, new(){
+        public T[] ReadArray<T>(T[] _) where T : ISerializable, new()
+        {
             ushort len = ReadUInt16();
             if (len == 0)
                 return null;
             var formatters = new T[len];
-            for (int i = 0; i < len; i++) {
+            for (int i = 0; i < len; i++)
+            {
                 if (ReadBoolean())
                     formatters[i] = default(T);
-                else {
+                else
+                {
                     var val = new T();
                     val.Deserialize(this);
                     formatters[i] = val;
@@ -405,16 +483,19 @@ namespace Lockstep.Serialization {
 
             return formatters;
         }
- 
-        public List<T> ReadList<T>(List<T> _) where T : ISerializable, new(){
+
+        public List<T> ReadList<T>(List<T> _) where T : ISerializable, new()
+        {
             ushort len = ReadUInt16();
             if (len == 0)
                 return null;
             var formatters = new List<T>(len);
-            for (int i = 0; i < len; i++) {
+            for (int i = 0; i < len; i++)
+            {
                 if (ReadBoolean())
                     formatters[i] = default(T);
-                else {
+                else
+                {
                     var val = new T();
                     val.Deserialize(this);
                     formatters.Add(val);
@@ -424,30 +505,35 @@ namespace Lockstep.Serialization {
             return formatters;
         }
 
-        public byte[] GetRemainingBytes(){
+        public byte[] GetRemainingBytes()
+        {
             byte[] outgoingData = new byte[AvailableBytes];
             Buffer.BlockCopy(_data, _position, outgoingData, 0, AvailableBytes);
             _position = _data.Length;
             return outgoingData;
         }
 
-        public void GetBytes(byte[] destination, int start, int count){
+        public void GetBytes(byte[] destination, int start, int count)
+        {
             Buffer.BlockCopy(_data, _position, destination, start, count);
             _position += count;
         }
 
-        public void GetBytes(byte[] destination, int count){
+        public void GetBytes(byte[] destination, int count)
+        {
             Buffer.BlockCopy(_data, _position, destination, 0, count);
             _position += count;
         }
-        public byte[] ReadBytes(int size){
+        public byte[] ReadBytes(int size)
+        {
             if (size == 0) return null;
             var outgoingData = new byte[size];
             Buffer.BlockCopy(_data, _position, outgoingData, 0, size);
             _position += size;
             return outgoingData;
         }
-        public byte[] ReadBytes(){
+        public byte[] ReadBytes()
+        {
             ushort size = ReadUInt16();
             if (size == 0) return null;
             var outgoingData = new byte[size];
@@ -456,7 +542,8 @@ namespace Lockstep.Serialization {
             return outgoingData;
         }
 
-        public byte[] ReadBytes_255(){
+        public byte[] ReadBytes_255()
+        {
             ushort size = ReadByte();
             if (size == 0) return null;
             var outgoingData = new byte[size];
@@ -469,62 +556,77 @@ namespace Lockstep.Serialization {
 
         #region PeekMethods
 
-        public byte PeekByte(){
+        public byte PeekByte()
+        {
             return _data[_position];
         }
 
-        public sbyte PeekSByte(){
-            return (sbyte) _data[_position];
+        public sbyte PeekSByte()
+        {
+            return (sbyte)_data[_position];
         }
 
-        public bool PeekBool(){
+        public bool PeekBool()
+        {
             return _data[_position] > 0;
         }
 
-        public char PeekChar(){
-            return (char) FastBitConverter.ToInt16(_data, _position);
+        public char PeekChar()
+        {
+            return (char)FastBitConverter.ToInt16(_data, _position);
         }
 
-        public ushort PeekUShort(){
+        public ushort PeekUShort()
+        {
             return FastBitConverter.ToUInt16(_data, _position);
         }
 
-        public short PeekShort(){
+        public short PeekShort()
+        {
             return FastBitConverter.ToInt16(_data, _position);
         }
 
-        public long PeekLong(){
+        public long PeekLong()
+        {
             return FastBitConverter.ToInt64(_data, _position);
         }
 
-        public ulong PeekULong(){
+        public ulong PeekULong()
+        {
             return FastBitConverter.ToUInt64(_data, _position);
         }
 
-        public int PeekInt(){
+        public int PeekInt()
+        {
             return FastBitConverter.ToInt32(_data, _position);
         }
 
-        public uint PeekUInt(){
+        public uint PeekUInt()
+        {
             return FastBitConverter.ToUInt32(_data, _position);
         }
 
-        public float PeekFloat(){
+        public float PeekFloat()
+        {
             return FastBitConverter.ToSingle(_data, _position);
         }
 
-        public double PeekDouble(){
+        public double PeekDouble()
+        {
             return FastBitConverter.ToDouble(_data, _position);
         }
 
-        public string PeekString(int maxLength){
+        public string PeekString(int maxLength)
+        {
             int bytesCount = BitConverter.ToInt32(_data, _position);
-            if (bytesCount <= 0 || bytesCount > maxLength * 2) {
+            if (bytesCount <= 0 || bytesCount > maxLength * 2)
+            {
                 return string.Empty;
             }
 
             int charCount = Encoding.UTF8.GetCharCount(_data, _position + 4, bytesCount);
-            if (charCount > maxLength) {
+            if (charCount > maxLength)
+            {
                 return string.Empty;
             }
 
@@ -532,9 +634,11 @@ namespace Lockstep.Serialization {
             return result;
         }
 
-        public string PeekString(){
+        public string PeekString()
+        {
             int bytesCount = BitConverter.ToInt32(_data, _position);
-            if (bytesCount <= 0) {
+            if (bytesCount <= 0)
+            {
                 return string.Empty;
             }
 
@@ -546,8 +650,10 @@ namespace Lockstep.Serialization {
 
         #region TryReadMethods
 
-        public bool TryReadByte(out byte result){
-            if (AvailableBytes >= 1) {
+        public bool TryReadByte(out byte result)
+        {
+            if (AvailableBytes >= 1)
+            {
                 result = ReadByte();
                 return true;
             }
@@ -556,8 +662,10 @@ namespace Lockstep.Serialization {
             return false;
         }
 
-        public bool TryReadSByte(out sbyte result){
-            if (AvailableBytes >= 1) {
+        public bool TryReadSByte(out sbyte result)
+        {
+            if (AvailableBytes >= 1)
+            {
                 result = ReadSByte();
                 return true;
             }
@@ -566,8 +674,10 @@ namespace Lockstep.Serialization {
             return false;
         }
 
-        public bool TryReadBool(out bool result){
-            if (AvailableBytes >= 1) {
+        public bool TryReadBool(out bool result)
+        {
+            if (AvailableBytes >= 1)
+            {
                 result = ReadBoolean();
                 return true;
             }
@@ -576,8 +686,10 @@ namespace Lockstep.Serialization {
             return false;
         }
 
-        public bool TryReadChar(out char result){
-            if (AvailableBytes >= 2) {
+        public bool TryReadChar(out char result)
+        {
+            if (AvailableBytes >= 2)
+            {
                 result = ReadChar();
                 return true;
             }
@@ -586,8 +698,10 @@ namespace Lockstep.Serialization {
             return false;
         }
 
-        public bool TryReadShort(out short result){
-            if (AvailableBytes >= 2) {
+        public bool TryReadShort(out short result)
+        {
+            if (AvailableBytes >= 2)
+            {
                 result = ReadInt16();
                 return true;
             }
@@ -596,8 +710,10 @@ namespace Lockstep.Serialization {
             return false;
         }
 
-        public bool TryReadUShort(out ushort result){
-            if (AvailableBytes >= 2) {
+        public bool TryReadUShort(out ushort result)
+        {
+            if (AvailableBytes >= 2)
+            {
                 result = ReadUInt16();
                 return true;
             }
@@ -606,8 +722,10 @@ namespace Lockstep.Serialization {
             return false;
         }
 
-        public bool TryReadInt(out int result){
-            if (AvailableBytes >= 4) {
+        public bool TryReadInt(out int result)
+        {
+            if (AvailableBytes >= 4)
+            {
                 result = ReadInt32();
                 return true;
             }
@@ -616,8 +734,10 @@ namespace Lockstep.Serialization {
             return false;
         }
 
-        public bool TryReadUInt(out uint result){
-            if (AvailableBytes >= 4) {
+        public bool TryReadUInt(out uint result)
+        {
+            if (AvailableBytes >= 4)
+            {
                 result = ReadUInt32();
                 return true;
             }
@@ -626,8 +746,10 @@ namespace Lockstep.Serialization {
             return false;
         }
 
-        public bool TryReadLong(out long result){
-            if (AvailableBytes >= 8) {
+        public bool TryReadLong(out long result)
+        {
+            if (AvailableBytes >= 8)
+            {
                 result = ReadInt64();
                 return true;
             }
@@ -636,8 +758,10 @@ namespace Lockstep.Serialization {
             return false;
         }
 
-        public bool TryReadULong(out ulong result){
-            if (AvailableBytes >= 8) {
+        public bool TryReadULong(out ulong result)
+        {
+            if (AvailableBytes >= 8)
+            {
                 result = ReadUInt64();
                 return true;
             }
@@ -646,8 +770,10 @@ namespace Lockstep.Serialization {
             return false;
         }
 
-        public bool TryReadFloat(out float result){
-            if (AvailableBytes >= 4) {
+        public bool TryReadFloat(out float result)
+        {
+            if (AvailableBytes >= 4)
+            {
                 result = ReadSingle();
                 return true;
             }
@@ -656,8 +782,10 @@ namespace Lockstep.Serialization {
             return false;
         }
 
-        public bool TryReadDouble(out double result){
-            if (AvailableBytes >= 8) {
+        public bool TryReadDouble(out double result)
+        {
+            if (AvailableBytes >= 8)
+            {
                 result = ReadDouble();
                 return true;
             }
@@ -666,10 +794,13 @@ namespace Lockstep.Serialization {
             return false;
         }
 
-        public bool TryReadString(out string result){
-            if (AvailableBytes >= 4) {
+        public bool TryReadString(out string result)
+        {
+            if (AvailableBytes >= 4)
+            {
                 var bytesCount = PeekInt();
-                if (AvailableBytes >= bytesCount + 4) {
+                if (AvailableBytes >= bytesCount + 4)
+                {
                     result = ReadString();
                     return true;
                 }
@@ -679,16 +810,20 @@ namespace Lockstep.Serialization {
             return false;
         }
 
-        public bool TryReadStringArray(out string[] result){
+        public bool TryReadStringArray(out string[] result)
+        {
             ushort size;
-            if (!TryReadUShort(out size)) {
+            if (!TryReadUShort(out size))
+            {
                 result = null;
                 return false;
             }
 
             result = new string[size];
-            for (int i = 0; i < size; i++) {
-                if (!TryReadString(out result[i])) {
+            for (int i = 0; i < size; i++)
+            {
+                if (!TryReadString(out result[i]))
+                {
                     result = null;
                     return false;
                 }
@@ -699,7 +834,8 @@ namespace Lockstep.Serialization {
 
         #endregion
 
-        public void Clear(){
+        public void Clear()
+        {
             _position = 0;
             _dataSize = 0;
             _data = null;
