@@ -41,11 +41,11 @@
 /FogOfWar/.vs
 
 /*************    Lockstep   ******************/
-/Lockstep/Library
-/Lockstep/Temp
-/Lockstep/Logs
-/Lockstep/obj
-/Lockstep/.vs
+/Lockstep/Lockstep.BehaviourTree/Library
+/Lockstep/Lockstep.BehaviourTree/Temp
+/Lockstep/Lockstep.BehaviourTree/Logs
+/Lockstep/Lockstep.BehaviourTree/obj
+/Lockstep/Lockstep.BehaviourTree/.vs
 
 /*************    NavmeshComponents   ******************/
 /NavmeshComponents/Library
