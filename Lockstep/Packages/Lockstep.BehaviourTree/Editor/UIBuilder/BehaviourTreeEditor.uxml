@@ -1,0 +1,29 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Packages/com.gamestan.lockstepaibehaviourtree/Editor/UIBuilder/BehaviourTreeEditorStyle.uss?fileID=7433441132597879392&amp;guid=8781ca2a6e79ccf4da2e234c8c123d2f&amp;type=3#BehaviourTreeEditorStyle" />
+    <uie:Toolbar>
+        <uie:ToolbarMenu display-tooltip-when-elided="true" text="Assets " />
+        <uie:ToolbarSpacer style="flex-grow: 1;" />
+        <ui:Label display-tooltip-when-elided="true" name="Version" />
+    </uie:Toolbar>
+    <Lockstep.AI.Editor.BTSplitView fixed-pane-initial-dimension="300">
+        <ui:VisualElement name="left-panel">
+            <ui:VisualElement name="inspector-container" style="background-color: rgb(56, 56, 56); min-height: 3000px;">
+                <Lockstep.AI.Editor.BTBlackboardView style="flex-grow: 1; min-height: 150px;">
+                    <ui:Label text="Blackboard" display-tooltip-when-elided="true" style="background-color: rgb(37, 37, 37);" />
+                    <ui:Label text="Create New Key..." display-tooltip-when-elided="true" style="-unity-font-style: italic;" />
+                    <ui:TextField picking-mode="Ignore" label="Name" name="TextField_KeyName" />
+                    <uie:EnumField label="EBlackboardKeyType" value="Center" name="EnumField_KeyType" />
+                    <ui:Button text="Create" display-tooltip-when-elided="true" name="Button_KeyCreate" />
+                    <ui:VisualElement style="height: 10px;" />
+                    <ui:VisualElement style="border-top-width: 1px; border-top-color: rgb(89, 89, 89); padding-top: 1px; min-height: 10px; height: 1px;" />
+                    <ui:Label text="Blackboard Values" display-tooltip-when-elided="true" style="-unity-font-style: italic;" />
+                    <ui:ListView focusable="true" name="ListView_Keys" view-data-key="ListView_Keys" show-border="false" show-alternating-row-backgrounds="ContentOnly" show-foldout-header="true" header-title="Keys" reorderable="true" reorder-mode="Animated" show-bound-collection-size="true" style="flex-grow: 1; min-height: 180px;" />
+                </Lockstep.AI.Editor.BTBlackboardView>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="right-panel">
+            <ui:Label text="Tree View" display-tooltip-when-elided="true" name="TitleLabel" style="background-color: rgb(37, 37, 37);" />
+            <Lockstep.AI.Editor.BTGraphView focusable="true" />
+        </ui:VisualElement>
+    </Lockstep.AI.Editor.BTSplitView>
+</ui:UXML>

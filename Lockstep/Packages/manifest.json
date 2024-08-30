@@ -1,5 +1,9 @@
 {
   "dependencies": {
+    "com.gamestan.lockstepaibehaviourtree": "file:G:/Github/Lockstep/Lockstep.BehaviourTree",
+    "com.gamestan.lockstepdebug": "file:G:/Github/Lockstep/Lockstep.Debug",
+    "com.gamestan.lockstepmath": "file:G:/Github/Lockstep/Lockstep.Math",
+    "com.gamestan.lockstepserializer": "file:G:/Github/Lockstep/Lockstep.Serializer",
     "com.unity.ide.visualstudio": "2.0.22",
     "com.unity.textmeshpro": "3.0.9",
     "com.unity.timeline": "1.8.7",

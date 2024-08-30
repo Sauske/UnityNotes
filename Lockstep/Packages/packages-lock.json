@@ -1,5 +1,29 @@
 {
   "dependencies": {
+    "com.gamestan.lockstepaibehaviourtree": {
+      "version": "file:Lockstep.BehaviourTree",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
+    "com.gamestan.lockstepdebug": {
+      "version": "file:Lockstep.Debug",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
+    "com.gamestan.lockstepmath": {
+      "version": "file:Lockstep.Math",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
+    "com.gamestan.lockstepserializer": {
+      "version": "file:Lockstep.Serializer",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
+    },
     "com.unity.ext.nunit": {
       "version": "1.0.6",
       "depth": 2,
