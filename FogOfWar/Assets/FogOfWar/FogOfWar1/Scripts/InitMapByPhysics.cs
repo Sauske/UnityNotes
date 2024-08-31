@@ -18,7 +18,10 @@ namespace FogOfWar
             {
                 for (int j = 0; j < mapData.GetLength(1); j++)
                 {
-                    if (Physics.CheckBox(fowManager.GetV3(new int[] { i, j }), new Vector3(fowManager.MapTileSize - 0.02f, 0f, fowManager.MapTileSize - 0.02f)/2))
+                    Vector3 center = fowManager.GetV3(new int[] { i, j });
+                    float tileSize = fowManager.MapTileSize - 0.02f;
+                    Vector3 halfExt = new Vector3(tileSize, 0f, tileSize) / 2;
+                    if (Physics.CheckBox(center, halfExt))
                     {
                         mapData[i, j] = 1;
                     }
@@ -31,5 +34,4 @@ namespace FogOfWar
             fowManager.InitMap(mapData);
         }
     }
-
 }

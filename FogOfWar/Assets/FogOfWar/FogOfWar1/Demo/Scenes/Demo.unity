@@ -739,7 +739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f679d2542968b349aa4d8379aaff732, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewerRange: 1
+  viewerRange: 3
 --- !u!23 &718874310
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1526,6 +1526,10 @@ PrefabInstance:
     - target: {fileID: 2837698006041148730, guid: f56cba44fb9f89f4f9b65ccf93faa60f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2837698006041148731, guid: f56cba44fb9f89f4f9b65ccf93faa60f, type: 3}
+      propertyPath: updateTime
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2837698006041148732, guid: f56cba44fb9f89f4f9b65ccf93faa60f, type: 3}
       propertyPath: m_Name
