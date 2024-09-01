@@ -52,6 +52,10 @@ namespace ASL.FogOfWar
         public void SetAsVisible(int x, int y)
         {
            // m_MaskCache[x, y] = 1;
+           if(x == 13 && y== 17)
+            {
+                Debug.LogFormat("x:{0},y:{1}", x, y);
+            }
             m_MaskCache[y*m_Width + x] = true;
             m_UpdateMark = UpdateMark.Changed;
         }

@@ -381,8 +381,11 @@ namespace ASL.FogOfWar
                 return true;
             if (!Instance.m_IsInitialized)
                 return true;
-            int x = Mathf.FloorToInt((position.x - Instance.m_BeginPos.x) * Instance.m_InvDeltaX);
-            int z = Mathf.FloorToInt((position.z - Instance.m_BeginPos.z) * Instance.m_InvDeltaZ);
+            //int x = Mathf.FloorToInt((position.x - Instance.m_BeginPos.x) * Instance.m_InvDeltaX);
+            //int z = Mathf.FloorToInt((position.z - Instance.m_BeginPos.z) * Instance.m_InvDeltaZ);
+
+            int x = Mathf.RoundToInt((position.x - Instance.m_BeginPos.x) * Instance.m_InvDeltaX);
+            int z = Mathf.RoundToInt((position.z - Instance.m_BeginPos.z) * Instance.m_InvDeltaZ);
 
             return Instance.m_Map.IsVisibleInMap(x, z);
         }
@@ -397,9 +400,14 @@ namespace ASL.FogOfWar
         //     }
         // }
 
-        void OnDrawGizmosSelected()
+        private void OnDrawGizmos()
         {
             FOWUtils.DrawFogOfWarGizmos(m_CenterPosition, m_XSize, m_ZSize, m_TexWidth, m_TexHeight, m_HeightRange);
+        }
+
+        void OnDrawGizmosSelected()
+        {
+           // FOWUtils.DrawFogOfWarGizmos(m_CenterPosition, m_XSize, m_ZSize, m_TexWidth, m_TexHeight, m_HeightRange);
         }
     }
 }

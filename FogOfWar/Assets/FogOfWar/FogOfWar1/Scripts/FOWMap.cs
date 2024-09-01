@@ -215,7 +215,6 @@ namespace FogOfWar
         {
             foreach (var tile in map)
             {
-
                 var c = colorBuffer[Index(tile.x, tile.y)];
                 if (c.r == 255)
                 {
@@ -223,7 +222,6 @@ namespace FogOfWar
                     colorBuffer[Index(tile.x, tile.y)].g = 0;
                     colorBuffer[Index(tile.x, tile.y)].b = 0;
                 }
-
             }
         }
         /// <summary>
