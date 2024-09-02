@@ -16,7 +16,7 @@ namespace UMI.FrameCommand
 
         public static CreatorDelegate[] s_CommandCreator = null;
         public static CreatorCSSyncDelegate[] s_CSSyncCommandCreator = null;
-        //public static CreatorSCSyncDelegate[] s_SCSyncCommandCreator = null;  //ÔİÊ±»¹²»ĞèÒªSCÃüÁîµÄCreator
+        //public static CreatorSCSyncDelegate[] s_SCSyncCommandCreator = null;  //æš‚æ—¶è¿˜ä¸éœ€è¦SCå‘½ä»¤çš„Creator
 
         public static Dictionary<Type, FRAMECMD_ID_DEF> s_CommandTypeDef = new Dictionary<Type, FRAMECMD_ID_DEF>();
 
@@ -91,7 +91,7 @@ namespace UMI.FrameCommand
         }
 
         /// <summary>
-        /// ´´½¨Ã÷È·µÄÃüÁî
+        /// åˆ›å»ºæ˜ç¡®çš„å‘½ä»¤
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
@@ -126,7 +126,7 @@ namespace UMI.FrameCommand
         }
 
         /// <summary>
-        /// Í¨¹ıÃüÁîID´´½¨ÃüÁî
+        /// é€šè¿‡å‘½ä»¤IDåˆ›å»ºå‘½ä»¤
         /// </summary>
         /// <param name="CmdID"></param>
         /// <returns></returns>
@@ -150,7 +150,7 @@ namespace UMI.FrameCommand
 
 
         /// <summary>
-        /// Í¨¹ıÃüÁîID´´½¨ÃüÁî
+        /// é€šè¿‡å‘½ä»¤IDåˆ›å»ºå‘½ä»¤
         /// </summary>
         /// <param name="CmdID"></param>
         /// <returns></returns>
@@ -172,7 +172,7 @@ namespace UMI.FrameCommand
         }
 
         /// <summary>
-        /// ÎªÃüÁî¹¹ÔìÓëÖ®Æ¥ÅäµÄĞ­Òé°ü
+        /// ä¸ºå‘½ä»¤æ„é€ ä¸ä¹‹åŒ¹é…çš„åè®®åŒ…
         /// </summary>
         /// <param name="cmd"></param>
         /// <returns></returns>

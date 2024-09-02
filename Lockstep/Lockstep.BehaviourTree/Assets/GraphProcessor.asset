@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: GraphProcessor
   m_EditorClassIdentifier: 
   serializedNodes: []
-  nodes: []
+  nodes:
+  - rid: 1594988533222735878
   edges: []
   groups: []
   stackNodes: []
@@ -23,8 +24,25 @@ MonoBehaviour:
   serializedParameterList: []
   stickyNotes: []
   nodeInspectorReference: {fileID: 0}
-  position: {x: 0, y: 0, z: 0}
+  position: {x: 0, y: 38, z: 0}
   scale: {x: 1, y: 1, z: 1}
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 1594988533222735878
+      type: {class: BTActionRoot, ns: Lockstep.AI, asm: Lockstep.AI.BehaviourTree}
+      data:
+        nodeCustomName: 
+        GUID: 3227de56-9828-4d79-a413-4eec8032d8d9
+        computeOrder: 0
+        position:
+          serializedVersion: 2
+          x: 397
+          y: 43
+          width: 180
+          height: 66
+        expanded: 0
+        debug: 0
+        nodeLock: 0
+        __output: 0
+        IsPriority: 1

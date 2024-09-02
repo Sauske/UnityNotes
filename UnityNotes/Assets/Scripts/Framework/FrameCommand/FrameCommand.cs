@@ -3,12 +3,12 @@ using System;
 namespace UMI.FrameCommand
 {
     /// <summary>
-    /// ÃüÁî½á¹¹·ºĞÍ
+    /// å‘½ä»¤ç»“æ„æ³›å‹
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public struct FrameCommand<T> : IFrameCommand where T : struct, ICommandImplement
     {
-        // Ö´ĞĞµÄÖ¡Î»
+        // æ‰§è¡Œçš„å¸§ä½
         private byte _sendCnt;
         private bool _isCSSync;
         private UInt32 _playerID;
@@ -55,7 +55,7 @@ namespace UMI.FrameCommand
         }
 
         /// <summary>
-        /// ½«ÃüÁî´ò°ü³ÉÍøÂçÊı¾İÁ÷
+        /// å°†å‘½ä»¤æ‰“åŒ…æˆç½‘ç»œæ•°æ®æµ
         /// </summary>
         /// <param name = "msg" ></ param >
         /// < returns ></ returns >
@@ -72,7 +72,7 @@ namespace UMI.FrameCommand
         }
 
         /// <summary>
-        /// ´ÓÍøÂçÊÕµ½ÃüÁîµÄ´¦Àí
+        /// ä»ç½‘ç»œæ”¶åˆ°å‘½ä»¤çš„å¤„ç†
         /// </summary>
         public void OnReceive()
         {
@@ -80,7 +80,7 @@ namespace UMI.FrameCommand
         }
 
         /// <summary>
-        /// Ô¤´¦ÀíCommand
+        /// é¢„å¤„ç†Command
         /// </summary>
         public void Preprocess()
         {
@@ -88,7 +88,7 @@ namespace UMI.FrameCommand
         }
 
         /// <summary>
-        /// Ö´ĞĞCommand
+        /// æ‰§è¡ŒCommand
         /// </summary>
         public void ExecCommand()
         {
@@ -96,8 +96,8 @@ namespace UMI.FrameCommand
         }
 
         /// <summary>
-        /// ÖØĞÂ»½ĞÑÃüÁî
-        /// ÔÚÃüÁî±»ÖĞ¶ÏµÄÇé¿öÏÂÓÃ
+        /// é‡æ–°å”¤é†’å‘½ä»¤
+        /// åœ¨å‘½ä»¤è¢«ä¸­æ–­çš„æƒ…å†µä¸‹ç”¨
         /// </summary>
         public void AwakeCommand()
         {
@@ -106,7 +106,7 @@ namespace UMI.FrameCommand
 
         public void Send()
         {
-            ////Ö»ÓĞÔÚÕ½¶·×´Ì¬²úÉúµÄÖ¡Í¬²½ÊäÈë²ÅÊÇÓĞĞ§µÄ
+            ////åªæœ‰åœ¨æˆ˜æ–—çŠ¶æ€äº§ç”Ÿçš„å¸§åŒæ­¥è¾“å…¥æ‰æ˜¯æœ‰æ•ˆçš„
             //if (BattleLogic.instance.isFighting)
             //{
             //    playerID = GamePlayerCenter.instance.HostPlayerId;

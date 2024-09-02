@@ -104,10 +104,13 @@ namespace Framework
 
     }
 
+
+
     public class CTableRecordBase
     {
         public virtual CRecordTable Load() { return null; }
     }
+
 
     public class TableRecord<TItem, TList> : CTableRecordBase
     {
@@ -127,6 +130,7 @@ namespace Framework
             return mRecordTable;
         }
     }
+
 
     public class CRecordTable
     {

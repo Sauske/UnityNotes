@@ -16,12 +16,12 @@ namespace UMI.FrameCommand
         }
 
         /// <summary>
-        /// 反射注册命令
+        /// 鍙嶅皠娉ㄥ唽鍛戒护
         /// </summary>
         private void RigisterCommand()
         {
-            // 注册帧命令构造器
-            // 解析网络来的cmdtype后构造对应的FrameCommand
+            // 娉ㄥ唽甯у懡浠ゆ瀯閫犲櫒
+            // 瑙ｆ瀽缃戠粶鏉ョ殑cmdtype鍚庢瀯閫犲搴旂殑FrameCommand
             var TestAssembly = typeof(FrameSynchr).Assembly;
 
             Type[] Types = TestAssembly.GetTypes();

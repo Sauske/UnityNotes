@@ -14,7 +14,7 @@ namespace Game.Network
     public class TCPSession
     {
         public enum SESSION_STATUS
-        { 
+        {
             NO_CONNECT,
             CONNECT_SUCCESS,
             CONNECT_FAILED_CONNECT_ERROR,
@@ -33,7 +33,7 @@ namespace Game.Network
         // encode 8 bits unsigned int
         public static int tcpsession_encode8u(byte[] p, int offset, byte c)
         {
-            if(p == null || p.Length < 1 || p.Length - offset < 1) return 0;
+            if (p == null || p.Length < 1 || p.Length - offset < 1) return 0;
             p[0 + offset] = c;
             return 1;
         }
@@ -41,24 +41,24 @@ namespace Game.Network
         // decode 8 bits unsigned int
         public static int tcpsession_decode8u(byte[] p, int offset, ref byte c)
         {
-            if(p == null || p.Length < 1 || p.Length - offset < 1) return 0;
+            if (p == null || p.Length < 1 || p.Length - offset < 1) return 0;
             c = p[0 + offset];
             return 1;
         }
 
-         /* encode 16 bits unsigned int (lsb) */
-        public static int tcpsession_encode16u(byte[] p, int offset, UInt16 w) 
+        /* encode 16 bits unsigned int (lsb) */
+        public static int tcpsession_encode16u(byte[] p, int offset, UInt16 w)
         {
-            if(p == null || p.Length < 2 || p.Length - offset < 2) return 0;
+            if (p == null || p.Length < 2 || p.Length - offset < 2) return 0;
             p[0 + offset] = (byte)(w >> 0);
             p[1 + offset] = (byte)(w >> 8);
             return 2;
         }
 
         /* decode 16 bits unsigned int (lsb) */
-        public static int tcpsession_decode16u(byte[] p, int offset, ref UInt16 c)  
+        public static int tcpsession_decode16u(byte[] p, int offset, ref UInt16 c)
         {
-            if(p == null || p.Length < 2 || p.Length - offset < 2) return 0;
+            if (p == null || p.Length < 2 || p.Length - offset < 2) return 0;
             UInt16 result = 0;
             result |= (UInt16)p[0 + offset];
             result |= (UInt16)(p[1 + offset] << 8);
@@ -69,7 +69,7 @@ namespace Game.Network
         /* encode 32 bits unsigned int (lsb) */
         public static int tcpsession_encode32u(byte[] p, int offset, UInt32 l)
         {
-            if(p == null || p.Length < 4 || p.Length - offset < 4) return 0;
+            if (p == null || p.Length < 4 || p.Length - offset < 4) return 0;
             p[0 + offset] = (byte)(l >> 0);
             p[1 + offset] = (byte)(l >> 8);
             p[2 + offset] = (byte)(l >> 16);
@@ -78,9 +78,9 @@ namespace Game.Network
         }
 
         /* decode 32 bits unsigned int (lsb) */
-        public static int tcpsession_decode32u(byte[] p, int offset, ref UInt32 c) 
+        public static int tcpsession_decode32u(byte[] p, int offset, ref UInt32 c)
         {
-            if(p == null || p.Length < 4 || p.Length - offset < 4) return 0;
+            if (p == null || p.Length < 4 || p.Length - offset < 4) return 0;
             UInt32 result = 0;
             result |= (UInt32)p[0 + offset];
             result |= (UInt32)(p[1 + offset] << 8);
@@ -135,35 +135,35 @@ namespace Game.Network
         private void ChangeStatus(SESSION_STATUS status)
         {
             m_cStatus = status;
-            if(status == SESSION_STATUS.CONNECT_SUCCESS)
+            if (status == SESSION_STATUS.CONNECT_SUCCESS)
             {
-                if(mCallback != null)
+                if (mCallback != null)
                 {
-                    mCallback(EVENT.CONNECTED, null , null);
+                    mCallback(EVENT.CONNECTED, null, null);
                 }
             }
 
-            if(status == SESSION_STATUS.CONNECT_FAILED_CONNECT_ERROR)
+            if (status == SESSION_STATUS.CONNECT_FAILED_CONNECT_ERROR)
             {
-                if(mCallback != null)
+                if (mCallback != null)
                 {
-                    mCallback(EVENT.CONNECT_FAILED, null , "connect error");
+                    mCallback(EVENT.CONNECT_FAILED, null, "connect error");
                 }
             }
 
-            if(status == SESSION_STATUS.CONNECT_FAILED_TIME_OUT)
+            if (status == SESSION_STATUS.CONNECT_FAILED_TIME_OUT)
             {
-                if(mCallback != null)
+                if (mCallback != null)
                 {
-                    mCallback(EVENT.CONNECT_FAILED, null , "connect time out");
+                    mCallback(EVENT.CONNECT_FAILED, null, "connect time out");
                 }
             }
 
-            if(status == SESSION_STATUS.CONNECT_EXIT)
+            if (status == SESSION_STATUS.CONNECT_EXIT)
             {
-                if(mCallback != null)
+                if (mCallback != null)
                 {
-                    mCallback(EVENT.CONNECT_DISCONNECT, null , "disconnect");
+                    mCallback(EVENT.CONNECT_DISCONNECT, null, "disconnect");
                 }
             }
         }
@@ -213,7 +213,7 @@ namespace Game.Network
             {
                 Debug.LogError(e.StackTrace);
                 ChangeStatus(SESSION_STATUS.CONNECT_FAILED_CONNECT_ERROR);
-                
+
             }
         }
 
@@ -240,15 +240,13 @@ namespace Game.Network
         {
             try
             {
-                if(m_cStatus != SESSION_STATUS.CONNECT_SUCCESS) return false;
+                if (m_cStatus != SESSION_STATUS.CONNECT_SUCCESS) return false;
 
                 if (m_cSocket == null)
                 {
                     throw new Exception("Error , the socket is null.");
                 }
-                m_cSocket.BeginReceive(mReceiveArray, 0, 
-                    RECEIVE_MAX_NUM, 
-                    SocketFlags.None, new AsyncCallback(ReceiveCallBack), mReceiveArray);
+                m_cSocket.BeginReceive(mReceiveArray, 0, RECEIVE_MAX_NUM, SocketFlags.None, new AsyncCallback(ReceiveCallBack), mReceiveArray);
                 return true;
             }
             catch (Exception e)
@@ -266,8 +264,9 @@ namespace Game.Network
                 int bytesCount = m_cSocket.EndReceive(ar);
                 if (bytesCount > 0)
                 {
+                    //TODO:这里应该是有粘包的情况。
                     byte[] data = new byte[bytesCount];
-                    Array.Copy(mReceiveArray, 0 , data, 0 , bytesCount);
+                    Array.Copy(mReceiveArray, 0, data, 0, bytesCount);
                     m_cReceiveQueue.Push(data);
 
                     Receive();
@@ -299,15 +298,15 @@ namespace Game.Network
         {
             try
             {
-                if(m_cStatus != SESSION_STATUS.CONNECT_SUCCESS) return;
-                if( Time.time - mSendStartTime < SEND_INTERVAL_TIME ) return;
+                if (m_cStatus != SESSION_STATUS.CONNECT_SUCCESS) return;
+                if (Time.time - mSendStartTime < SEND_INTERVAL_TIME) return;
 
                 int _packsize = 0;
                 m_cSendBuffer.Clear();
-                for( ; mQueSend.Count > 0 ; )
+                for (; mQueSend.Count > 0;)
                 {
                     byte[] que_buffer = mQueSend.Peek();
-                    if((_packsize > 0 && que_buffer.Length + _packsize > SEND_MAX_SIZE) || que_buffer == null)
+                    if ((_packsize > 0 && que_buffer.Length + _packsize > SEND_MAX_SIZE) || que_buffer == null)
                     {
                         break;
                     }
@@ -332,8 +331,7 @@ namespace Game.Network
 
                     mSendStartTime = Time.time;
 
-                    m_cSocket.BeginSend(buffer, 0, buffer.Length,
-                        SocketFlags.DontRoute, new AsyncCallback(SendCallBack), m_cSocket);
+                    m_cSocket.BeginSend(buffer, 0, buffer.Length, SocketFlags.DontRoute, new AsyncCallback(SendCallBack), m_cSocket);
                 }
             }
             catch (Exception e)
@@ -357,12 +355,12 @@ namespace Game.Network
         {
             m_cReceiveQueue.Switch();
 
-            while(!m_cReceiveQueue.Empty())
+            while (!m_cReceiveQueue.Empty())
             {
                 m_cReceiveBuffer.Write(m_cReceiveQueue.Pop());
             }
 
-            for( ; m_cReceiveBuffer.GetSize() >= HEAD_SIZE ; )
+            for (; m_cReceiveBuffer.GetSize() >= HEAD_SIZE;)
             {
                 UInt16 pack_size = 0;
                 int offset = 0;
@@ -376,7 +374,7 @@ namespace Game.Network
 
                     if (buffer != null)
                     {
-                        if(mCallback != null)
+                        if (mCallback != null)
                         {
                             mCallback(EVENT.DATA_RECEIVE, buffer, null);
                         }

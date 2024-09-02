@@ -4,7 +4,7 @@ using System;
 namespace UMI.FrameCommand
 {
     /// <summary>
-    /// ÃüÁî»ùÀà½Ó¿Ú
+    /// å‘½ä»¤åŸºç±»æ¥å£
     /// </summary>
     public interface IFrameCommand
     {
@@ -27,7 +27,7 @@ namespace UMI.FrameCommand
     }
 
     /// <summary>
-    /// ÃüÁîÊµÏÖÌå½Ó¿Ú
+    /// å‘½ä»¤å®ç°ä½“æ¥å£
     /// </summary>
     public interface ICommandImplement //
     {

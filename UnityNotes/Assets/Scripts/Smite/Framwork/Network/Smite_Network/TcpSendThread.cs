@@ -54,15 +54,21 @@ namespace Framework
                             CommError.Type ret = CommError.Type.COMM_NO_ERROR;
                             int pack_len = 0;
                             ret = item.msg.pack(ref _buffer, _buffer.Length, ref pack_len);
-                            if (ret != CommError.Type.COMM_NO_ERROR) continue;
-
+                            if (ret != CommError.Type.COMM_NO_ERROR)
+                            {
+                                Debug.LogErrorFormat("封包错误：CMD ：{0}", item.msg.head.cmd_id);
+                                continue;
+                            }
                             if (item.msg.head.cmd_id == (uint)CMD_ID.CS_CMD_REQ_PING) //心跳
                             {
                                 //TODO
                                 item.mTcpClient.helloSendTime = DateTime.Now;
                             }
-                            if (pack_len == 0) continue;
-
+                            if (pack_len == 0)
+                            {
+                                Debug.LogErrorFormat("封包错误,长度为0。CMD ：{0}", item.msg.head.cmd_id);
+                                continue;
+                            }
                             try
                             {
                                 for (int i = 0; i < 10; i++)
