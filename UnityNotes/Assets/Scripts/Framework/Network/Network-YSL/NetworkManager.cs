@@ -2,6 +2,7 @@
 using UnityWebSocket;
 using System;
 using System.Collections.Generic;
+using SFramework;
 
 namespace UnityWebSocket
 {
@@ -26,10 +27,8 @@ namespace UnityWebSocket
         /// </summary>
         private readonly Queue<OutgoingBase> reconQueue = new Queue<OutgoingBase>();
 
-        public override void OnInitialize()
+        protected override void OnInit()
         {
-            base.OnInitialize();
-
             // OpenSocket();
 
           //  EventRouter.GetInstance().AddEventHandler<bool>(EventID.ON_APPLICATION_FOCUS, ON_APPLICATION_FOCUS);
@@ -52,8 +51,6 @@ namespace UnityWebSocket
 
         public void OnDispose()
         {
-            base.OnInitialize();
-
             CloseSocket();
 
            // EventRouter.GetInstance().RemoveEventHandler<bool>(EventID.ON_APPLICATION_FOCUS, ON_APPLICATION_FOCUS);

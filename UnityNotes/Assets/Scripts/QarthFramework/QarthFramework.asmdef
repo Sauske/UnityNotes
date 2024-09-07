@@ -1,0 +1,16 @@
+{
+    "name": "QarthFramework",
+    "rootNamespace": "",
+    "references": [
+        "GUID:229555881c80b974eb7788772a9e3385"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
