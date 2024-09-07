@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System;
 using System.Reflection;
@@ -8,7 +8,7 @@ namespace UMI.FrameCommand
     public class FrameSynchr : Singleton<FrameSynchr>
     {
 
-        public override void OnInitialize()
+        protected override void OnInit()
         {
             FrameCommandFactory.PrepareRegisterCommand();
 

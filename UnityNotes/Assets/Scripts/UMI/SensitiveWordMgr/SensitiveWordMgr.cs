@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -9,7 +9,7 @@ namespace UMI
         const string path = "SensitiveWord.txt";
         private List<string> words = new List<string>();
 
-        public override void OnInitialize()
+        protected override void OnInit()
         {
             LoadTxt();
         }

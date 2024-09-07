@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using ZXing;
 using ZXing.Common;
 using System;
@@ -20,9 +20,9 @@ namespace UMI
 
         private Texture2D logoTexture;
 
-        public override void OnInitialize()
+        protected override void OnInit()
         {
-            base.OnInitialize();
+
         }
 
         public void Dispose()

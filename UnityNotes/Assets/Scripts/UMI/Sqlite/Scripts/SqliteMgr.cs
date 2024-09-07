@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using SQLite4Unity3d;
@@ -14,10 +14,8 @@ namespace UMI
 
         private SQLiteConnection _connection;
 
-        public override void OnInitialize()
+        protected override void OnInit()
         {
-            base.OnInitialize();
-
             CreateSqlite(DB_NAME);
             _connection.CreateTable<IMMsgData>();
         }

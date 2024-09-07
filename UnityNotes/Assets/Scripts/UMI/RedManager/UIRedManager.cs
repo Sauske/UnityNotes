@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -19,11 +19,9 @@ namespace UMI
         //记录需要刷新的红点节点
         private Queue<RedPointNode> refreshNodeQueue = new Queue<RedPointNode>();
 
-        public override void OnInitialize()
+        protected override void OnInit()
         {
-            base.OnInitialize();
             //CTimerManager.GetInstance().AddTimer(3000, -1, UpdateRedUI);
-
             enumerator = listCallback.GetEnumerator();
         }
 
