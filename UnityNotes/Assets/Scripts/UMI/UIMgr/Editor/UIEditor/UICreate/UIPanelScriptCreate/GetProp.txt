@@ -1,0 +1,14 @@
+        private typeName mPropPrivateName;
+
+        public typeName getPropName
+        {
+            get
+            {
+                if(mPropPrivateName == null)
+                {
+                    mPropPrivateName = mViewObj.FindObjAndGetOrAddComponent<typeName>("objPath");
+                }
+                return mPropPrivateName;
+            }
+        }
+

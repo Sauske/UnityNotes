@@ -1,0 +1,41 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace UMI
+{
+    public class UINameCtrl : BaseUICtrl
+    {
+
+        private Temp_View_NAME mUIView;
+
+        public UINameCtrl() : base(UITypeName.UINameType, UILayer.Frame)
+        { }
+
+        protected override void CreateView()
+        {
+            mUIView = new Temp_View_NAME(mUIObj);
+
+            AddBtnListeners();
+        }
+
+        private void AddBtnListeners()
+        {
+TEMP_ADD_BTN_CLICK_MOTHEDS
+        }
+
+#region BtnsMotheds
+
+TEMP_BTN_CLICK_MOTHEDS
+
+#endregion
+
+        /// <summary>
+        /// 界面显示时调用，做初始化的操作
+        /// </summary>
+        protected override void OnShow()
+        {
+            
+        }
+
+    }
+}

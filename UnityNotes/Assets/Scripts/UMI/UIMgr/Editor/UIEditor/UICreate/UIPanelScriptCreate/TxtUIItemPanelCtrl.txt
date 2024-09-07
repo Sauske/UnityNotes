@@ -1,0 +1,59 @@
+using UnityEngine;
+using UnityEngine.UI;
+
+namespace UMI
+{
+    public class UINameCtrl : BaseItemCtrl
+    {
+
+        #region 自动生成的代码 尽量不要修改，只会在没有这个文件时生成
+
+        /// <summary>
+        /// 不要直接调用这个 使用的时候调用 ItemView
+        /// </summary>
+        private Temp_View_NAME mItemView;
+
+        public Temp_View_NAME ItemView
+        {
+            get
+            {
+                if (mItemView == null)
+                {
+                    CreateView();
+                }
+                return mItemView;
+            }
+        }
+
+
+        protected override void CreateView()
+        {
+            if (mInitedView && mItemView != null)
+            {
+                return;
+            }
+
+            mInitedView = true;
+            if (mItemView == null)
+            {
+                mItemView = new Temp_View_NAME(this.gameObject);
+            }
+
+            AddBtnListeners();
+        }
+
+        #endregion
+
+        protected override void AddBtnListeners()
+        {
+TEMP_ADD_BTN_CLICK_MOTHEDS
+        }
+
+#region BtnsMotheds
+
+TEMP_BTN_CLICK_MOTHEDS
+
+#endregion
+
+    }
+}

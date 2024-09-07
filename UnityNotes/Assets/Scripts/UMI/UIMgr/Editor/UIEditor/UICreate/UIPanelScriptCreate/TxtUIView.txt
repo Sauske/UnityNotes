@@ -1,0 +1,28 @@
+//////////////////////////////////////
+///
+///
+/// 脚本自动生成的代码，不能手动修改
+///
+///
+//////////////////////////////////////
+
+
+
+using UnityEngine;
+using UnityEngine.UI;
+
+using TMPro;
+using UnityEngine.EventSystems;
+using SuperScrollView;
+
+namespace UMI
+{
+    public class Temp_View_NAME : BaseView
+    {
+        public Temp_View_NAME(GameObject viewObj) : base(viewObj)
+        { }
+
+Temp_View_UI_Props
+
+    }
+}   
