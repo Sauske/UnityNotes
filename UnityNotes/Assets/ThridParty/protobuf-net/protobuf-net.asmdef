@@ -1,9 +1,7 @@
 {
-    "name": "Smite",
+    "name": "protobuf-net",
     "rootNamespace": "",
-    "references": [
-        "GUID:0100448436409094594d0c6c76d4860d"
-    ],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": true,
