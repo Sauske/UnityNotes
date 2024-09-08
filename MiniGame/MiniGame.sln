@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatchThree", "MatchThree.cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlappyBirdStyle", "FlappyBirdStyle.csproj", "{2A491F64-D1EA-4CC0-9504-3E817C3DC4E6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brick", "Brick.csproj", "{89CDC00D-5043-F75C-A012-8EB32854A9BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{2A491F64-D1EA-4CC0-9504-3E817C3DC4E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A491F64-D1EA-4CC0-9504-3E817C3DC4E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A491F64-D1EA-4CC0-9504-3E817C3DC4E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89CDC00D-5043-F75C-A012-8EB32854A9BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89CDC00D-5043-F75C-A012-8EB32854A9BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89CDC00D-5043-F75C-A012-8EB32854A9BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89CDC00D-5043-F75C-A012-8EB32854A9BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
