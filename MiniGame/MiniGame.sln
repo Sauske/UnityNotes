@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlappyBirdStyle", "FlappyBi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brick", "Brick.csproj", "{89CDC00D-5043-F75C-A012-8EB32854A9BE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngryBirdsStyle", "AngryBirdsStyle.csproj", "{4266CDFC-A8C9-A049-4DD4-4214993E2659}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{0923E84A-75BA-26D7-12E0-16309E80B4B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +35,14 @@ Global
 		{89CDC00D-5043-F75C-A012-8EB32854A9BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89CDC00D-5043-F75C-A012-8EB32854A9BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89CDC00D-5043-F75C-A012-8EB32854A9BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4266CDFC-A8C9-A049-4DD4-4214993E2659}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4266CDFC-A8C9-A049-4DD4-4214993E2659}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4266CDFC-A8C9-A049-4DD4-4214993E2659}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4266CDFC-A8C9-A049-4DD4-4214993E2659}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0923E84A-75BA-26D7-12E0-16309E80B4B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0923E84A-75BA-26D7-12E0-16309E80B4B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0923E84A-75BA-26D7-12E0-16309E80B4B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0923E84A-75BA-26D7-12E0-16309E80B4B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
