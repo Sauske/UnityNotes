@@ -47,6 +47,13 @@
 /Lockstep/Lockstep.BehaviourTree/obj
 /Lockstep/Lockstep.BehaviourTree/.vs
 
+/*************    MiniGame   ******************/
+/MiniGame/Library
+/MiniGame/Temp
+/MiniGame/Logs
+/MiniGame/obj
+/MiniGame/.vs
+
 /*************    NavmeshComponents   ******************/
 /NavmeshComponents/Library
 /NavmeshComponents/Temp
