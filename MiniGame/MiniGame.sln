@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoKit", "GoKit.csproj", "{6
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MatchThree", "MatchThree.csproj", "{E0CF262F-B175-94AF-D00F-1AD76B6728A3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlappyBirdStyle", "FlappyBirdStyle.csproj", "{2A491F64-D1EA-4CC0-9504-3E817C3DC4E6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{E0CF262F-B175-94AF-D00F-1AD76B6728A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0CF262F-B175-94AF-D00F-1AD76B6728A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0CF262F-B175-94AF-D00F-1AD76B6728A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A491F64-D1EA-4CC0-9504-3E817C3DC4E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A491F64-D1EA-4CC0-9504-3E817C3DC4E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A491F64-D1EA-4CC0-9504-3E817C3DC4E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A491F64-D1EA-4CC0-9504-3E817C3DC4E6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
