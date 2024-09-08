@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/BubbleBreaker/Scenes/highScoresScene.unity
     guid: 05aef9b5a18d77e43ab1711fda664187
+  - enabled: 1
+    path: Assets/InfiniteRunner3D/Scenes/rotatedPathsLevel.unity
+    guid: ee73cf4f3461af2488e33f22fe0e0e3c
+  - enabled: 1
+    path: Assets/InfiniteRunner3D/Scenes/straightPathsLevel.unity
+    guid: 04c04415dccd44affa142385ff66b497
   m_configObjects: {}

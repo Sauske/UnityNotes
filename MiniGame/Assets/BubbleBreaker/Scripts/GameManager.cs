@@ -71,8 +71,6 @@ public class GameManager : MonoBehaviour
 
                 var renderer = go.transform.GetComponent<Renderer>();
                 renderer.material = material; //set the color
-
-
             }
         }
     }
