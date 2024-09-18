@@ -61,8 +61,7 @@ public class ShapesManager : MonoBehaviour
         //assign the name of the respective "normal" candy as the type of the Bonus
         foreach (var item in BonusPrefabs)
         {
-            item.GetComponent<Shape>().Type = CandyPrefabs.
-                Where(x => x.GetComponent<Shape>().Type.Contains(item.name.Split('_')[1].Trim())).Single().name;
+            item.GetComponent<Shape>().Type = CandyPrefabs.Where(x => x.GetComponent<Shape>().Type.Contains(item.name.Split('_')[1].Trim())).Single().name;
         }
     }
 
@@ -155,8 +154,7 @@ public class ShapesManager : MonoBehaviour
         //create the spawn positions for the new shapes (will pop from the 'ceiling')
         for (int column = 0; column < Constants.Columns; column++)
         {
-            SpawnPositions[column] = BottomRight
-                + new Vector2(column * CandySize.x, Constants.Rows * CandySize.y);
+            SpawnPositions[column] = BottomRight + new Vector2(column * CandySize.x, Constants.Rows * CandySize.y);
         }
     }
 
@@ -265,8 +263,7 @@ public class ShapesManager : MonoBehaviour
         var hitGomatchesInfo = shapes.GetMatches(hitGo);
         var hitGo2matchesInfo = shapes.GetMatches(hitGo2);
 
-        var totalMatches = hitGomatchesInfo.MatchedCandy
-            .Union(hitGo2matchesInfo.MatchedCandy).Distinct();
+        var totalMatches = hitGomatchesInfo.MatchedCandy.Union(hitGo2matchesInfo.MatchedCandy).Distinct();
 
         //if user's swap didn't create at least a 3-match, undo their swap
         if (totalMatches.Count() < Constants.MinimumMatches)
@@ -352,10 +349,9 @@ public class ShapesManager : MonoBehaviour
     /// <param name="hitGoCache"></param>
     private void CreateBonus(Shape hitGoCache)
     {
-        GameObject Bonus = Instantiate(GetBonusFromType(hitGoCache.Type), BottomRight
-            + new Vector2(hitGoCache.Column * CandySize.x,
-                hitGoCache.Row * CandySize.y), Quaternion.identity)
-            as GameObject;
+        GameObject go = GetBonusFromType(hitGoCache.Type);
+        Vector3 position = BottomRight + new Vector2(hitGoCache.Column * CandySize.x, hitGoCache.Row * CandySize.y);
+        GameObject Bonus = Instantiate<GameObject>(go, position, Quaternion.identity);
         shapes[hitGoCache.Row, hitGoCache.Column] = Bonus;
         var BonusShape = Bonus.GetComponent<Shape>();
         //will have the same type as the "normal" candy

@@ -27,8 +27,7 @@ public class ShapesArray
                 return shapes[row, column];
             }
             catch (Exception ex)
-            {
-                
+            {                
                 throw ex;
             }
         }
